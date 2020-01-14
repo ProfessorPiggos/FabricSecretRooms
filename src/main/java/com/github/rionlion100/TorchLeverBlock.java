@@ -9,6 +9,8 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.WallTorchBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
@@ -57,7 +59,8 @@ public class TorchLeverBlock extends WallTorchBlock{
         else{
             world.setBlockState(pos, state.with(POWERED, false), 3);
         }
-
+        float f = (Boolean)state.get(POWERED) ? 0.6F : 0.5F;
+        world.playSound((PlayerEntity)null, pos, SoundEvents.BLOCK_LEVER_CLICK, SoundCategory.BLOCKS, 0.3F, f);
     }
     
     @Override
