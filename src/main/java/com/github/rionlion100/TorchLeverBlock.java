@@ -46,13 +46,13 @@ public class TorchLeverBlock extends WallTorchBlock{
         if (world.isClient) {
             return ActionResult.SUCCESS;
         } else {
-            light(state, world, pos);
+            flip(state, world, pos);
             updateNeighbors(state, world, pos);
             return ActionResult.PASS;
         }
     }
 
-    private static void light(BlockState state, World world, BlockPos pos) {
+    private static void flip(BlockState state, World world, BlockPos pos) {
         if (!state.get(POWERED)) {
             world.setBlockState(pos, state.with(POWERED, true), 3);
         }
