@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+      "layer0": "secretrooms:item/camo_paste"
+    }
+  }
+  

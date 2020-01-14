@@ -1,0 +1,13 @@
+Blocks{
+    Secret iron door,
+    Secret wood door,
+    Solid Air,
+    Secret Stair,
+    Secret Lever,
+    Ghost Block,
+    One way glass,
+    Torch Lever
+}
+Items{
+    Camo Paste="dye around sand or dirt, crafting material"
+}

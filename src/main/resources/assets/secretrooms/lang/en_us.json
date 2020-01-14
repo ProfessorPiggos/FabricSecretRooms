@@ -1,0 +1,9 @@
+{
+    "item.secretrooms.camo_paste": "Camo Paste",
+    "item.secretrooms.torch_lever": "Torch Lever",
+    "block.secretrooms.torch_lever": "Torch Lever",
+    "itemGroup.secretrooms.general": "Secret Rooms",
+    "block.secretrooms.solid_air":"Solid Air",
+    "item.secretrooms.solid_air":"Solid Air"
+
+}
