@@ -1,0 +1,11 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "north": "block/glass",
+        "south": "block/glass",
+        "west": "block/glass",
+        "up": "block/glass",
+        "down": "block/glass",
+        "east": "block/oak_planks"
+    }
+}
