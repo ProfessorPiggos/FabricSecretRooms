@@ -27,6 +27,7 @@ public class secretrooms implements ModInitializer {
 			stacks.add(new ItemStack(secretrooms.camo_paste));
 			stacks.add(new ItemStack(secretrooms.torch_lever));
 			stacks.add(new ItemStack(secretrooms.solid_air));
+			stacks.add(new ItemStack(secretrooms.one_way_glass));
 		}).build();
 
 	@Override
