@@ -17,7 +17,15 @@ public class secretrooms implements ModInitializer {
 	public static final Item camo_paste = new Item(new Item.Settings().group(secretrooms.MAIN_GROUP));
 	public static final TorchLeverBlock torch_lever = new TorchLeverBlock(FabricBlockSettings.of(Material.WOOD).lightLevel(0).build());
 	public static final SolidAirBlock solid_air = new SolidAirBlock(FabricBlockSettings.of(Material.AIR).hardness(.45f).nonOpaque().build());
-	public static final OneWayGlassBlock one_way_glass = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).nonOpaque().build());
+	public static final OneWayGlassBlock one_way_glass_oak = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).nonOpaque().build());
+	public static final OneWayGlassBlock one_way_glass_spruce = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).nonOpaque().build());
+	public static final OneWayGlassBlock one_way_glass_jungle = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).nonOpaque().build());
+	public static final OneWayGlassBlock one_way_glass_acacia = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).nonOpaque().build());
+	public static final OneWayGlassBlock one_way_glass_dark_oak = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).nonOpaque().build());
+	public static final OneWayGlassBlock one_way_glass_birch = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).nonOpaque().build());
+	public static final OneWayGlassBlock one_way_glass_cobble = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).nonOpaque().build());
+	public static final OneWayGlassBlock one_way_glass_stone = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).nonOpaque().build());
+	public static final OneWayGlassBlock one_way_glass_dirt = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).nonOpaque().build());
 
 	public static final ItemGroup MAIN_GROUP = FabricItemGroupBuilder.create(
 		new Identifier("secretrooms", "general"))
@@ -27,20 +35,53 @@ public class secretrooms implements ModInitializer {
 			stacks.add(new ItemStack(secretrooms.camo_paste));
 			stacks.add(new ItemStack(secretrooms.torch_lever));
 			stacks.add(new ItemStack(secretrooms.solid_air));
-			stacks.add(new ItemStack(secretrooms.one_way_glass));
-		}).build();
+			stacks.add(new ItemStack(secretrooms.one_way_glass_oak));
+			stacks.add(new ItemStack(secretrooms.one_way_glass_birch));
+			stacks.add(new ItemStack(secretrooms.one_way_glass_spruce));
+			stacks.add(new ItemStack(secretrooms.one_way_glass_dark_oak));
+			stacks.add(new ItemStack(secretrooms.one_way_glass_acacia));
+			stacks.add(new ItemStack(secretrooms.one_way_glass_jungle));
+			stacks.add(new ItemStack(secretrooms.one_way_glass_cobble));
+			stacks.add(new ItemStack(secretrooms.one_way_glass_stone));
+			stacks.add(new ItemStack(secretrooms.one_way_glass_dirt));
+					}).build();
 
 	@Override
 	public void onInitialize() {
 		BlockRenderLayerMap.INSTANCE.putBlock(torch_lever, RenderLayer.getCutoutMipped());
 		BlockRenderLayerMap.INSTANCE.putBlock(solid_air, RenderLayer.getCutoutMipped());
-		BlockRenderLayerMap.INSTANCE.putBlock(one_way_glass, RenderLayer.getCutoutMipped());
+		BlockRenderLayerMap.INSTANCE.putBlock(one_way_glass_oak, RenderLayer.getCutoutMipped());
+		BlockRenderLayerMap.INSTANCE.putBlock(one_way_glass_birch, RenderLayer.getCutoutMipped());
+		BlockRenderLayerMap.INSTANCE.putBlock(one_way_glass_spruce, RenderLayer.getCutoutMipped());
+		BlockRenderLayerMap.INSTANCE.putBlock(one_way_glass_dark_oak, RenderLayer.getCutoutMipped());
+		BlockRenderLayerMap.INSTANCE.putBlock(one_way_glass_acacia, RenderLayer.getCutoutMipped());
+		BlockRenderLayerMap.INSTANCE.putBlock(one_way_glass_jungle, RenderLayer.getCutoutMipped());
+		BlockRenderLayerMap.INSTANCE.putBlock(one_way_glass_cobble, RenderLayer.getCutoutMipped());
+		BlockRenderLayerMap.INSTANCE.putBlock(one_way_glass_stone, RenderLayer.getCutoutMipped());
+		BlockRenderLayerMap.INSTANCE.putBlock(one_way_glass_dirt, RenderLayer.getCutoutMipped());
+		
 		Registry.register(Registry.ITEM, new Identifier("secretrooms", "camo_paste"), camo_paste);
 		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "torch_lever"), torch_lever);
 		Registry.register(Registry.ITEM, new Identifier("secretrooms", "torch_lever"), new BlockItem(torch_lever, new Item.Settings().group(secretrooms.MAIN_GROUP)));
 		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "solid_air"), solid_air);
 		Registry.register(Registry.ITEM, new Identifier("secretrooms", "solid_air"), new BlockItem(solid_air, new Item.Settings().group(secretrooms.MAIN_GROUP)));
-		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "one_way_glass"), one_way_glass);
-        Registry.register(Registry.ITEM, new Identifier("secretrooms", "one_way_glass"), new BlockItem(one_way_glass, new Item.Settings().group(secretrooms.MAIN_GROUP)));
+		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "one_way_glass_oak"), one_way_glass_oak);
+		Registry.register(Registry.ITEM, new Identifier("secretrooms", "one_way_glass_oak"), new BlockItem(one_way_glass_oak, new Item.Settings().group(secretrooms.MAIN_GROUP)));
+		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "one_way_glass_birch"), one_way_glass_birch);
+		Registry.register(Registry.ITEM, new Identifier("secretrooms", "one_way_glass_birch"), new BlockItem(one_way_glass_birch, new Item.Settings().group(secretrooms.MAIN_GROUP)));
+		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "one_way_glass_spruce"), one_way_glass_spruce);
+		Registry.register(Registry.ITEM, new Identifier("secretrooms", "one_way_glass_spruce"), new BlockItem(one_way_glass_spruce, new Item.Settings().group(secretrooms.MAIN_GROUP)));
+		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "one_way_glass_dark_oak"), one_way_glass_dark_oak);
+		Registry.register(Registry.ITEM, new Identifier("secretrooms", "one_way_glass_dark_oak"), new BlockItem(one_way_glass_dark_oak, new Item.Settings().group(secretrooms.MAIN_GROUP)));
+		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "one_way_glass_acacia"), one_way_glass_acacia);
+		Registry.register(Registry.ITEM, new Identifier("secretrooms", "one_way_glass_acacia"), new BlockItem(one_way_glass_acacia, new Item.Settings().group(secretrooms.MAIN_GROUP)));
+		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "one_way_glass_jungle"), one_way_glass_jungle);
+		Registry.register(Registry.ITEM, new Identifier("secretrooms", "one_way_glass_jungle"), new BlockItem(one_way_glass_jungle, new Item.Settings().group(secretrooms.MAIN_GROUP)));
+		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "one_way_glass_cobble"), one_way_glass_cobble);
+		Registry.register(Registry.ITEM, new Identifier("secretrooms", "one_way_glass_cobble"), new BlockItem(one_way_glass_cobble, new Item.Settings().group(secretrooms.MAIN_GROUP)));
+		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "one_way_glass_stone"), one_way_glass_stone);
+		Registry.register(Registry.ITEM, new Identifier("secretrooms", "one_way_glass_stone"), new BlockItem(one_way_glass_stone, new Item.Settings().group(secretrooms.MAIN_GROUP)));
+		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "one_way_glass_dirt"), one_way_glass_dirt);
+		Registry.register(Registry.ITEM, new Identifier("secretrooms", "one_way_glass_dirt"), new BlockItem(one_way_glass_dirt, new Item.Settings().group(secretrooms.MAIN_GROUP)));
 	}
 }

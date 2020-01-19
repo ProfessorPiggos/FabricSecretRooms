@@ -13,7 +13,7 @@ import net.minecraft.util.math.Direction;
 public class OneWayGlassBlock extends GlassBlock{
     public static final DirectionProperty FACING;
     static {FACING = HorizontalFacingBlock.FACING;}
-
+    
     public OneWayGlassBlock(Settings settings) {
         super(settings);
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));

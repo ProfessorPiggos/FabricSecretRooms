@@ -1,0 +1,8 @@
+{
+	"variants": { 
+		"facing=west": { "model": "secretrooms:block/one_way_glass_birch" },
+		"facing=north": { "model": "secretrooms:block/one_way_glass_birch", "y": 90 },
+		"facing=east": { "model": "secretrooms:block/one_way_glass_birch", "y": 180 },
+		"facing=south": { "model": "secretrooms:block/one_way_glass_birch", "y": 270 } 
+	}
+}
