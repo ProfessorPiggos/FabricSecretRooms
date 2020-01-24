@@ -2,10 +2,8 @@ package com.github.rionlion100;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.block.Material;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -48,18 +46,6 @@ public class secretrooms implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		BlockRenderLayerMap.INSTANCE.putBlock(torch_lever, RenderLayer.getCutoutMipped());
-		BlockRenderLayerMap.INSTANCE.putBlock(solid_air, RenderLayer.getCutoutMipped());
-		BlockRenderLayerMap.INSTANCE.putBlock(one_way_glass_oak, RenderLayer.getCutoutMipped());
-		BlockRenderLayerMap.INSTANCE.putBlock(one_way_glass_birch, RenderLayer.getCutoutMipped());
-		BlockRenderLayerMap.INSTANCE.putBlock(one_way_glass_spruce, RenderLayer.getCutoutMipped());
-		BlockRenderLayerMap.INSTANCE.putBlock(one_way_glass_dark_oak, RenderLayer.getCutoutMipped());
-		BlockRenderLayerMap.INSTANCE.putBlock(one_way_glass_acacia, RenderLayer.getCutoutMipped());
-		BlockRenderLayerMap.INSTANCE.putBlock(one_way_glass_jungle, RenderLayer.getCutoutMipped());
-		BlockRenderLayerMap.INSTANCE.putBlock(one_way_glass_cobble, RenderLayer.getCutoutMipped());
-		BlockRenderLayerMap.INSTANCE.putBlock(one_way_glass_stone, RenderLayer.getCutoutMipped());
-		BlockRenderLayerMap.INSTANCE.putBlock(one_way_glass_dirt, RenderLayer.getCutoutMipped());
-		
 		Registry.register(Registry.ITEM, new Identifier("secretrooms", "camo_paste"), camo_paste);
 		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "torch_lever"), torch_lever);
 		Registry.register(Registry.ITEM, new Identifier("secretrooms", "torch_lever"), new BlockItem(torch_lever, new Item.Settings().group(secretrooms.MAIN_GROUP)));
