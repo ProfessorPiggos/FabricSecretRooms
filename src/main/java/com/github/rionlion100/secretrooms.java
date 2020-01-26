@@ -20,7 +20,7 @@ public class secretrooms implements ModInitializer {
 	public static final OneWayGlassBlock one_way_glass_jungle = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).hardness(.45f).nonOpaque().build());
 	public static final OneWayGlassBlock one_way_glass_acacia = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).hardness(.45f).nonOpaque().build());
 	public static final OneWayGlassBlock one_way_glass_dark_oak = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).hardness(.45f).nonOpaque().build());
-	public static final OneWayGlassBlock one_way_glass_birch = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS.hardness(.45f)).nonOpaque().build());
+	public static final OneWayGlassBlock one_way_glass_birch = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).hardness(.45f).nonOpaque().build());
 	public static final OneWayGlassBlock one_way_glass_cobble = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).hardness(.45f).nonOpaque().build());
 	public static final OneWayGlassBlock one_way_glass_stone = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).hardness(.45f).nonOpaque().build());
 	public static final OneWayGlassBlock one_way_glass_dirt = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).hardness(.45f).nonOpaque().build());
