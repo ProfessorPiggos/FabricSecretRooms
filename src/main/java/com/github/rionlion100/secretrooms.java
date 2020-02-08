@@ -14,7 +14,8 @@ import net.minecraft.util.registry.Registry;
 
 public class secretrooms implements ModInitializer {
 	public static final Item camo_paste = new Item(new Item.Settings().group(secretrooms.MAIN_GROUP));
-	public static final TorchLeverBlock torch_lever = new TorchLeverBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).lightLevel(0).build());
+	public static final TorchLeverBlock torch_lever = new TorchLeverBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).lightLevel(0).collidable(false).build(), null);
+	public static final TorchLeverBlock soul_fire_torch_lever = new SoulTorchLeverBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).lightLevel(0).collidable(false).build(), null);
 	public static final SolidAirBlock solid_air = new SolidAirBlock(FabricBlockSettings.of(Material.AIR).hardness(.45f).nonOpaque().build());
 	public static final OneWayGlassBlock one_way_glass_oak = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).hardness(.45f).sounds(BlockSoundGroup.GLASS).nonOpaque().build());
 	public static final OneWayGlassBlock one_way_glass_spruce = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).hardness(.45f).sounds(BlockSoundGroup.GLASS).nonOpaque().build());
@@ -33,6 +34,7 @@ public class secretrooms implements ModInitializer {
 		{
 			stacks.add(new ItemStack(secretrooms.camo_paste));
 			stacks.add(new ItemStack(secretrooms.torch_lever));
+			stacks.add(new ItemStack(secretrooms.soul_fire_torch_lever));
 			stacks.add(new ItemStack(secretrooms.solid_air));
 			stacks.add(new ItemStack(secretrooms.one_way_glass_oak));
 			stacks.add(new ItemStack(secretrooms.one_way_glass_birch));
@@ -50,6 +52,8 @@ public class secretrooms implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("secretrooms", "camo_paste"), camo_paste);
 		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "torch_lever"), torch_lever);
 		Registry.register(Registry.ITEM, new Identifier("secretrooms", "torch_lever"), new BlockItem(torch_lever, new Item.Settings().group(secretrooms.MAIN_GROUP)));
+		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "soul_fire_torch_lever"), soul_fire_torch_lever);
+		Registry.register(Registry.ITEM, new Identifier("secretrooms", "soul_fire_torch_lever"), new BlockItem(soul_fire_torch_lever, new Item.Settings().group(secretrooms.MAIN_GROUP)));
 		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "solid_air"), solid_air);
 		Registry.register(Registry.ITEM, new Identifier("secretrooms", "solid_air"), new BlockItem(solid_air, new Item.Settings().group(secretrooms.MAIN_GROUP)));
 		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "one_way_glass_oak"), one_way_glass_oak);

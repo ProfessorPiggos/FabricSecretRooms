@@ -9,6 +9,7 @@ public class secretroomsclient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		BlockRenderLayerMap.INSTANCE.putBlock(secretrooms.torch_lever, RenderLayer.getCutoutMipped());
+		BlockRenderLayerMap.INSTANCE.putBlock(secretrooms.soul_fire_torch_lever, RenderLayer.getCutoutMipped());
 		BlockRenderLayerMap.INSTANCE.putBlock(secretrooms.solid_air, RenderLayer.getCutoutMipped());
 		BlockRenderLayerMap.INSTANCE.putBlock(secretrooms.one_way_glass_oak, RenderLayer.getCutoutMipped());
 		BlockRenderLayerMap.INSTANCE.putBlock(secretrooms.one_way_glass_birch, RenderLayer.getCutoutMipped());
