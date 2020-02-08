@@ -8,12 +8,13 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class secretrooms implements ModInitializer {
-	public static final Item camo_paste = new Item(new Item.Settings().group(secretrooms.MAIN_GROUP));
+	public static final Item camo_paste = new Item(new Item.Settings().group(secretrooms.MAIN_GROUP).recipeRemainder(Items.BUCKET).maxCount(16));
 	public static final TorchLeverBlock torch_lever = new TorchLeverBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).lightLevel(0).collidable(false).build(), null);
 	public static final TorchLeverBlock soul_fire_torch_lever = new SoulTorchLeverBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).lightLevel(0).collidable(false).build(), null);
 	public static final SolidAirBlock solid_air = new SolidAirBlock(FabricBlockSettings.of(Material.AIR).hardness(.45f).nonOpaque().build());

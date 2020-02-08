@@ -2,7 +2,7 @@
     "type": "minecraft:crafting_shaped",
     "pattern": [
         "###",
-        "#D#",
+        "DBD",
         "###"
     ],
     "key": {
@@ -27,7 +27,9 @@
         "D": [
             {"item": "minecraft:sand"},
             {"item": "minecraft:dirt"}
-        ]
+        ],
+        "B": [
+            {"item": "minecraft:bucket"}        ]
 
     },
     "result": {"item": "secretrooms:camo_paste","count": 1}

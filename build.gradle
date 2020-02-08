@@ -7,7 +7,7 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 archivesBaseName = project.archives_base_name
-version = project.mod_version
+version = project.mod_version+ "-" + project.minecraft_version
 group = project.maven_group
 
 minecraft {
@@ -26,7 +26,6 @@ processResources {
 		include "fabric.mod.json"
 		expand "version": project.version
 	}
-
 	from(sourceSets.main.resources.srcDirs) {
 		exclude "fabric.mod.json"
 	}
@@ -45,6 +44,7 @@ tasks.withType(JavaCompile) {
 task sourcesJar(type: Jar, dependsOn: classes) {
 	classifier = "sources"
 	from sourceSets.main.allSource
+
 }
 
 jar {
