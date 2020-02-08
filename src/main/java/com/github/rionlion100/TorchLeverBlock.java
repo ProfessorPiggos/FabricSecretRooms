@@ -48,7 +48,7 @@ public class TorchLeverBlock extends WallTorchBlock{
         } else {
             flip(state, world, pos);
             updateNeighbors(state, world, pos);
-            return ActionResult.PASS;
+            return ActionResult.SUCCESS;
         }
     }
 
