@@ -3,6 +3,7 @@ package com.github.rionlion100;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -15,7 +16,7 @@ import net.minecraft.util.registry.Registry;
 public class secretrooms implements ModInitializer {
 	public static final Item camo_paste = new Item(new Item.Settings().group(secretrooms.MAIN_GROUP));
 	public static final TorchLeverBlock torch_lever = new TorchLeverBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).lightLevel(0).build());
-	public static final SolidAirBlock solid_air = new SolidAirBlock(FabricBlockSettings.of(Material.AIR).hardness(.45f).nonOpaque().build());
+	public static final SolidAirBlock solid_air = new SolidAirBlock(FabricBlockSettings.of(Material.AIR).hardness(.45f).nonOpaque().sounds(BlockSoundGroup.GLASS).build());
 	public static final OneWayGlassBlock one_way_glass_oak = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).hardness(.45f).sounds(BlockSoundGroup.GLASS).nonOpaque().build());
 	public static final OneWayGlassBlock one_way_glass_spruce = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).hardness(.45f).sounds(BlockSoundGroup.GLASS).nonOpaque().build());
 	public static final OneWayGlassBlock one_way_glass_jungle = new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).hardness(.45f).sounds(BlockSoundGroup.GLASS).nonOpaque().build());
@@ -70,5 +71,7 @@ public class secretrooms implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("secretrooms", "one_way_glass_stone"), new BlockItem(one_way_glass_stone, new Item.Settings().group(secretrooms.MAIN_GROUP)));
 		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "one_way_glass_dirt"), one_way_glass_dirt);
 		Registry.register(Registry.ITEM, new Identifier("secretrooms", "one_way_glass_dirt"), new BlockItem(one_way_glass_dirt, new Item.Settings().group(secretrooms.MAIN_GROUP)));
+
+		FlammableBlockRegistry.getDefaultInstance().add(secretrooms.solid_air, 30, 60);
 	}
 }

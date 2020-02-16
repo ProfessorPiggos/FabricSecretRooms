@@ -7,5 +7,4 @@ public class SolidAirBlock extends Block {
     public SolidAirBlock(Settings settings) {
         super(settings);
     }
-
 }
