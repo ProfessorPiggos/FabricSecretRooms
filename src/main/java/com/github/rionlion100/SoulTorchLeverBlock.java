@@ -5,7 +5,6 @@ import java.util.Random;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
-import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -13,11 +12,8 @@ import net.minecraft.world.World;
 
 public class SoulTorchLeverBlock extends TorchLeverBlock {
 
-    public SoulTorchLeverBlock(Settings settings, ParticleEffect particleEffect) {
-        super(settings, particleEffect);
-    }
-    public int getLuminance(BlockState state) {
-        return state.get(POWERED) ? super.getLuminance(state) : 10;
+    public SoulTorchLeverBlock(Settings settings) {
+        super(settings);
     }
     @Override
     public String getTranslationKey() {

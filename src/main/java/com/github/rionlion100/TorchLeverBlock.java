@@ -8,7 +8,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.WallTorchBlock;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -26,13 +25,10 @@ import net.minecraft.world.World;
 public class TorchLeverBlock extends WallTorchBlock{
     public static final BooleanProperty POWERED = Properties.POWERED;
 
-    public TorchLeverBlock(Settings settings, ParticleEffect particleEffect) {
-        super(settings, particleEffect);
+    public TorchLeverBlock(Settings settings) {
+        super(settings, null);
         this.setDefaultState(getStateManager().getDefaultState().with(POWERED, false).with(FACING,Direction.NORTH));
         }
-    public int getLuminance(BlockState state) {
-        return state.get(POWERED) ? super.getLuminance(state) : 14;
-    }
 
     public void onBlockRemoved(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (!moved && state.getBlock() != newState.getBlock()) {
