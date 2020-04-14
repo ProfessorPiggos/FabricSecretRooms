@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"particle": "block/warped_planks",
+		"south": "block/warped_planks",
+		"north": "block/glass",
+		"east": "block/warped_planks",
+		"down": "block/warped_planks",
+		"up": "block/warped_planks",
+		"west": "block/warped_planks"
+	}
+}

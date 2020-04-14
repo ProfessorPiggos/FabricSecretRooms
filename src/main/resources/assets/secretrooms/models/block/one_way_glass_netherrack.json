@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"particle": "block/netherrack",
+		"south": "block/netherrack",
+		"north": "block/glass",
+		"east": "block/netherrack",
+		"down": "block/netherrack",
+		"up": "block/netherrack",
+		"west": "block/netherrack"
+	}
+}

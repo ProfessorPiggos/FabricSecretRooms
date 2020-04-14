@@ -6,7 +6,7 @@
 		"north": "block/glass",
 		"east": "block/dirt",
 		"down": "block/dirt",
-		"up": "block/dirt",
+		"up": "block/grass",
 		"west": "block/dirt"
 	}
 }

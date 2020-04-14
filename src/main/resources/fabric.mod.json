@@ -19,10 +19,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.github.rionlion100.secretrooms"
+      "com.github.rionlion100.SecretRooms"
     ],
     "client": [
-      "com.github.rionlion100.secretroomsclient"
+      "com.github.rionlion100.SecretRoomsClient"
     ]
   },
 

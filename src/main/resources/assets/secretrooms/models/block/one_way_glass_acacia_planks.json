@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"particle": "block/acacia_planks",
+		"south": "block/acacia_planks",
+		"north": "block/glass",
+		"east": "block/acacia_planks",
+		"down": "block/acacia_planks",
+		"up": "block/acacia_planks",
+		"west": "block/acacia_planks"
+	}
+}

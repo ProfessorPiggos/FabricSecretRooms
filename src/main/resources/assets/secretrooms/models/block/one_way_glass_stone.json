@@ -3,8 +3,8 @@
 	"textures": {
 		"particle": "block/stone",
 		"south": "block/stone",
-		"north": "block/stone",
-		"east": "block/glass",
+		"north": "block/glass",
+		"east": "block/stone",
 		"down": "block/stone",
 		"up": "block/stone",
 		"west": "block/stone"

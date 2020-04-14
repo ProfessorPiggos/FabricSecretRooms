@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"particle": "block/gilded_blackstone",
+		"south": "block/gilded_blackstone",
+		"north": "block/glass",
+		"east": "block/gilded_blackstone",
+		"down": "block/gilded_blackstone",
+		"up": "block/gilded_blackstone",
+		"west": "block/gilded_blackstone"
+	}
+}

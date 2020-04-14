@@ -1,8 +1,10 @@
 {
 	"variants": { 
-		"facing=west": { "model": "secretrooms:block/one_way_glass_dirt" },
-		"facing=north": { "model": "secretrooms:block/one_way_glass_dirt", "y": 90 },
-		"facing=east": { "model": "secretrooms:block/one_way_glass_dirt", "y": 180 },
-		"facing=south": { "model": "secretrooms:block/one_way_glass_dirt", "y": 270 } 
+		"facing=up": {"model":"secretrooms:block/one_way_glass_dirt", "x":270, "uvlock":true} ,
+		"facing=down": {"model":"secretrooms:block/one_way_glass_dirt", "x":90, "uvlock":true},
+		"facing=north": { "model": "secretrooms:block/one_way_glass_dirt","y":0, "uvlock":true},
+		"facing=east": { "model": "secretrooms:block/one_way_glass_dirt", "y": 90 , "uvlock":true},
+		"facing=south": { "model": "secretrooms:block/one_way_glass_dirt", "y": 180, "uvlock":true },
+		"facing=west": { "model": "secretrooms:block/one_way_glass_dirt", "y": 270, "uvlock":true}
 	}
 }
