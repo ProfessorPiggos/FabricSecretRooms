@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "hanging=true,powered=false": { "model": "secretrooms:block/hanging_soul_fire_lantern_button" },
+        "hanging=true,powered=true": { "model": "secretrooms:block/hanging_soul_fire_lantern_button_off"},
+        "hanging=false,powered=true": { "model": "secretrooms:block/soul_fire_lantern_button_off"},
+        "hanging=false,powered=false": { "model": "secretrooms:block/soul_fire_lantern_button"}
+    }
+}

@@ -27,36 +27,40 @@ import net.minecraft.util.registry.Registry;
 public class SecretRooms implements ModInitializer {
 	public static Map<Block, OneWayGlassBlock> ONE_WAY_GLASS_MAP = new HashMap<Block, OneWayGlassBlock>();
 	public static List<Block> ONE_WAY_GLASS_SOURCE_BLOCKS = new ArrayList<Block>();
-
-	private void registerOneWayGlassBlocks() {
-		for (int i = 0; i < ONE_WAY_GLASS_SOURCE_BLOCKS.size(); i++){
-			Block block = ONE_WAY_GLASS_SOURCE_BLOCKS.get(i);
-			ONE_WAY_GLASS_MAP.put(block, new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).hardness(0.3F).sounds(BlockSoundGroup.GLASS).nonOpaque().build()));
-			Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "one_way_glass_"+block.getTranslationKey().replace("block.minecraft.", "")), ONE_WAY_GLASS_MAP.get(block));
-			Registry.register(Registry.ITEM, new Identifier("secretrooms", "one_way_glass_"+block.getTranslationKey().replace("block.minecraft.", "")), new BlockItem(ONE_WAY_GLASS_MAP.get(block), new Item.Settings().group(SecretRooms.MAIN_GROUP)));
-		}
-	}
-	
 	public static final Item CAMO_PASTE = new Item(new Item.Settings().group(SecretRooms.MAIN_GROUP).recipeRemainder(Items.BUCKET).maxCount(16));
 	public static final TorchLeverBlock TORCH_LEVER_BLOCK = new TorchLeverBlock(AbstractBlock.Settings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).lightLevel(createLightLevelFromBlockState(15)).noCollision());
 	public static final TorchLeverBlock SOUL_FIRE_TORCH_LEVER_BLOCK = new SoulTorchLeverBlock(AbstractBlock.Settings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).lightLevel(createLightLevelFromBlockState(10)).noCollision());
 	public static final SolidAirBlock SOLID_AIR_BLOCK = new SolidAirBlock(FabricBlockSettings.of(Material.GLASS).hardness(.45f).nonOpaque().build());
-	
+	public static final LanternButtonBlock LANTERN_BUTTON_BLOCK = new LanternButtonBlock(AbstractBlock.Settings.copy(Blocks.LANTERN).lightLevel(createLightLevelFromBlockState(15)));
+	public static final LanternButtonBlock SOUL_FIRE_LANTERN_BUTTON_BLOCK = new LanternButtonBlock(AbstractBlock.Settings.copy(Blocks.SOUL_FIRE_LANTERN).lightLevel(createLightLevelFromBlockState(10)));
+	private static final String MOD_ID = "secretrooms";
+
 	public static final ItemGroup MAIN_GROUP = FabricItemGroupBuilder.create(
-		new Identifier("secretrooms", "general"))
+		new Identifier(MOD_ID, "general"))
 		.icon(() -> new ItemStack(SecretRooms.CAMO_PASTE))
 		.appendItems(stacks ->
 		{
 			stacks.add(new ItemStack(SecretRooms.CAMO_PASTE));
+			stacks.add(new ItemStack(SecretRooms.SOLID_AIR_BLOCK));
 			stacks.add(new ItemStack(SecretRooms.TORCH_LEVER_BLOCK));
 			stacks.add(new ItemStack(SecretRooms.SOUL_FIRE_TORCH_LEVER_BLOCK));
-			stacks.add(new ItemStack(SecretRooms.SOLID_AIR_BLOCK));
+			stacks.add(new ItemStack(SecretRooms.LANTERN_BUTTON_BLOCK));
+			stacks.add(new ItemStack(SecretRooms.SOUL_FIRE_LANTERN_BUTTON_BLOCK));
 			for (int i = 0; i < ONE_WAY_GLASS_SOURCE_BLOCKS.size(); i++){
 				Block block = ONE_WAY_GLASS_SOURCE_BLOCKS.get(i);
 				OneWayGlassBlock oneWayGlassBlock = ONE_WAY_GLASS_MAP.get(block);
 				stacks.add(new ItemStack(oneWayGlassBlock));
 			}
 		}).build();
+
+	private void registerOneWayGlassBlocks() {
+		for (int i = 0; i < ONE_WAY_GLASS_SOURCE_BLOCKS.size(); i++){
+			Block block = ONE_WAY_GLASS_SOURCE_BLOCKS.get(i);
+			ONE_WAY_GLASS_MAP.put(block, new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).hardness(0.3F).sounds(BlockSoundGroup.GLASS).nonOpaque().build()));
+			Registry.register(Registry.BLOCK, new Identifier(MOD_ID , "one_way_glass_"+block.getTranslationKey().replace("block.minecraft.", "")), ONE_WAY_GLASS_MAP.get(block));
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "one_way_glass_"+block.getTranslationKey().replace("block.minecraft.", "")), new BlockItem(ONE_WAY_GLASS_MAP.get(block), new Item.Settings().group(SecretRooms.MAIN_GROUP)));
+		}
+	}
 
 	private static ToIntFunction<BlockState> createLightLevelFromBlockState(int litLevel) {
 		return (blockState) -> {
@@ -66,13 +70,17 @@ public class SecretRooms implements ModInitializer {
 				
 	@Override
 	public void onInitialize() {
-		Registry.register(Registry.ITEM, new Identifier("secretrooms", "camo_paste"), CAMO_PASTE);
-		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "torch_lever"), TORCH_LEVER_BLOCK);
-		Registry.register(Registry.ITEM, new Identifier("secretrooms", "torch_lever"), new BlockItem(TORCH_LEVER_BLOCK, new Item.Settings().group(SecretRooms.MAIN_GROUP)));
-		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "soul_fire_torch_lever"), SOUL_FIRE_TORCH_LEVER_BLOCK);
-		Registry.register(Registry.ITEM, new Identifier("secretrooms", "soul_fire_torch_lever"), new BlockItem(SOUL_FIRE_TORCH_LEVER_BLOCK, new Item.Settings().group(SecretRooms.MAIN_GROUP)));
-		Registry.register(Registry.BLOCK, new Identifier("secretrooms" , "solid_air"), SOLID_AIR_BLOCK);
-		Registry.register(Registry.ITEM, new Identifier("secretrooms", "solid_air"), new BlockItem(SOLID_AIR_BLOCK, new Item.Settings().group(SecretRooms.MAIN_GROUP)));
+		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "camo_paste"), CAMO_PASTE);
+		Registry.register(Registry.BLOCK, new Identifier(MOD_ID , "torch_lever"), TORCH_LEVER_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "torch_lever"), new BlockItem(TORCH_LEVER_BLOCK, new Item.Settings().group(SecretRooms.MAIN_GROUP)));
+		Registry.register(Registry.BLOCK, new Identifier(MOD_ID , "soul_fire_torch_lever"), SOUL_FIRE_TORCH_LEVER_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "soul_fire_torch_lever"), new BlockItem(SOUL_FIRE_TORCH_LEVER_BLOCK, new Item.Settings().group(SecretRooms.MAIN_GROUP)));
+		Registry.register(Registry.BLOCK, new Identifier(MOD_ID , "solid_air"), SOLID_AIR_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "solid_air"), new BlockItem(SOLID_AIR_BLOCK, new Item.Settings().group(SecretRooms.MAIN_GROUP)));
+		Registry.register(Registry.BLOCK, new Identifier(MOD_ID , "lantern_button"), LANTERN_BUTTON_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "lantern_button"), new BlockItem(LANTERN_BUTTON_BLOCK, new Item.Settings().group(SecretRooms.MAIN_GROUP)));
+		Registry.register(Registry.BLOCK, new Identifier(MOD_ID , "soul_fire_lantern_button"), SOUL_FIRE_LANTERN_BUTTON_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "soul_fire_lantern_button"), new BlockItem(SOUL_FIRE_LANTERN_BUTTON_BLOCK, new Item.Settings().group(SecretRooms.MAIN_GROUP)));
 
 		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.OAK_PLANKS);
 		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.ACACIA_PLANKS);
