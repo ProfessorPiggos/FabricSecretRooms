@@ -17,7 +17,7 @@ public class SoulTorchLeverBlock extends TorchLeverBlock {
     }
     @Override
     public String getTranslationKey() {
-        return "block.secretrooms.soul_fire_torch_lever";
+        return "block.secretrooms.soul_torch_lever";
     }
     @Override
     @Environment(EnvType.CLIENT)

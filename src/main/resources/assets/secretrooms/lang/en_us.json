@@ -1,9 +1,9 @@
 {
     "item.secretrooms.camo_paste": "Camo Paste",
     "block.secretrooms.torch_lever": "Torch Lever",
-    "block.secretrooms.soul_fire_torch_lever": "Soul Fire Torch Lever",
+    "block.secretrooms.soul_torch_lever": "Soul Torch Lever",
     "block.secretrooms.lantern_button": "Lantern Button",
-    "block.secretrooms.soul_fire_lantern_button": "Soul Fire Lantern Button",
+    "block.secretrooms.soul_lantern_button": "Soul Lantern Button",
     "itemGroup.secretrooms.general": "Secret Rooms",
     "block.secretrooms.solid_air":"Solid Air",
     "block.secretrooms.one_way_glass_oak_planks":"Oak Planks Glass",
