@@ -2,7 +2,7 @@
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
         {
-            "item": "minecraft:soul_fire_torch"
+            "item": "minecraft:soul_torch"
         },
         {
             "item": "minecraft:lever"
@@ -12,7 +12,7 @@
         }
     ],
     "result": {
-        "item": "secretrooms:soul_fire_torch_lever",
+        "item": "secretrooms:soul_torch_lever",
         "count": 1
     }
 }

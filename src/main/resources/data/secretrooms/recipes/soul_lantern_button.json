@@ -2,7 +2,7 @@
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
         {
-            "item": "minecraft:soul_fire_lantern"
+            "item": "minecraft:soul_lantern"
         },
         {
             "item": "minecraft:stone_button"
@@ -12,7 +12,7 @@
         }
     ],
     "result": {
-        "item": "secretrooms:soul_fire_lantern_button",
+        "item": "secretrooms:soul_lantern_button",
         "count": 1
     }
 }
