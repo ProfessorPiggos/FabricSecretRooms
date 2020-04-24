@@ -1,0 +1,7 @@
+{
+  "parent": "secretrooms:block/door_top",
+  "textures": {
+    "top": "minecraft:block/blackstone",
+    "bottom": "minecraft:block/blackstone"
+  }
+}

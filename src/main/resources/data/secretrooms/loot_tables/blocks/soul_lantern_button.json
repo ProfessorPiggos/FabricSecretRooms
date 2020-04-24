@@ -6,7 +6,7 @@
         "entries": [
           {
             "type": "minecraft:item",
-            "name": "secretrooms:torch_lever"
+            "name": "secretrooms:soul_lantern_button"
           }
         ],
         "conditions": [

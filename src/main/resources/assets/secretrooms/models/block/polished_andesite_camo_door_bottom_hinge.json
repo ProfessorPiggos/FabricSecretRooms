@@ -1,0 +1,7 @@
+{
+  "parent": "secretrooms:block/door_bottom_rh",
+  "textures": {
+    "top": "minecraft:block/polished_andesite",
+    "bottom": "minecraft:block/polished_andesite"
+  }
+}
