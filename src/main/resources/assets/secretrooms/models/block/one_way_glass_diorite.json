@@ -1,12 +1,12 @@
 {
 	"parent": "block/cube",
 	"textures": {
-		"particle": "block/diorite",
-		"south": "block/diorite",
-		"north": "block/glass",
-		"east": "block/diorite",
-		"down": "block/diorite",
-		"up": "block/diorite",
-		"west": "block/diorite"
+		"particle": "minecraft:block/diorite",
+		"south": "minecraft:block/diorite",
+		"north": "minecraft:block/glass",
+		"east": "minecraft:block/diorite",
+		"down": "minecraft:block/diorite",
+		"up": "minecraft:block/diorite",
+		"west": "minecraft:block/diorite"
 	}
 }

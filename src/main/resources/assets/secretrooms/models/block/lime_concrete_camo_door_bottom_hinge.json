@@ -1,0 +1,7 @@
+{
+  "parent": "secretrooms:block/door_bottom_rh",
+  "textures": {
+    "top": "minecraft:block/lime_concrete",
+    "bottom": "minecraft:block/lime_concrete"
+  }
+}

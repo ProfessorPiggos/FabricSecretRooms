@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "secretrooms:camo_paste"
+		},
+		{
+			"item": "minecraft:brown_concrete"
+		},
+		{
+			"item": "minecraft:glass"
+		}
+	],
+	"result": {
+		"item": "secretrooms:one_way_glass_brown_concrete",
+		"count": 1
+	}
+}

@@ -1,12 +1,12 @@
 {
 	"parent": "block/cube",
 	"textures": {
-		"particle": "block/purpur_pillar",
-		"south": "block/purpur_pillar",
-		"north": "block/glass",
-		"east": "block/purpur_pillar",
-		"down": "block/purpur_pillar_top",
-		"up": "block/purpur_pillar_top",
-		"west": "block/purpur_pillar"
+		"particle": "minecraft:block/purpur_pillar",
+		"south": "minecraft:block/purpur_pillar",
+		"north": "minecraft:block/glass",
+		"east": "minecraft:block/purpur_pillar",
+		"down": "minecraft:block/purpur_pillar",
+		"up": "minecraft:block/purpur_pillar",
+		"west": "minecraft:block/purpur_pillar"
 	}
 }

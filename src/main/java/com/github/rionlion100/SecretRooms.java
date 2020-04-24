@@ -63,8 +63,8 @@ public class SecretRooms implements ModInitializer {
 		for (int i = 0; i < copyBlockList.size(); i++){
 			Block block = copyBlockList.get(i);
 			glassCopyBlockMap.put(block, new OneWayGlassBlock(FabricBlockSettings.copy(Blocks.GLASS).build()));
-			Registry.register(Registry.BLOCK, new Identifier(MOD_ID , "one_way_glass_"+block.getTranslationKey().replace("block.minecraft.", "")), glassCopyBlockMap.get(block));
-			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "one_way_glass_"+block.getTranslationKey().replace("block.minecraft.", "")), new BlockItem(glassCopyBlockMap.get(block), new Item.Settings().group(SecretRooms.MAIN_GROUP)));
+			Registry.register(Registry.BLOCK, new Identifier(MOD_ID , "one_way_glass_"+block.getTranslationKey().replaceAll("block\\.(minecraft|blockus)\\.", "")), glassCopyBlockMap.get(block));
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "one_way_glass_"+block.getTranslationKey().replaceAll("block\\.(minecraft|blockus)\\.", "")), new BlockItem(glassCopyBlockMap.get(block), new Item.Settings().group(SecretRooms.MAIN_GROUP)));
 		}
 	}
 
@@ -72,8 +72,8 @@ public class SecretRooms implements ModInitializer {
 		for (int i = 0; i < copyBlockList.size(); i++){
 			Block block = copyBlockList.get(i);
 			doorCopyBlockMap.put(block, new CamoDoorBlock(FabricBlockSettings.copy(block).build(), block.getSoundGroup(block.getDefaultState())));
-			Registry.register(Registry.BLOCK, new Identifier(MOD_ID , block.getTranslationKey().replace("block.minecraft.", "")+"_camo_door"), doorCopyBlockMap.get(block));
-			Registry.register(Registry.ITEM, new Identifier(MOD_ID, block.getTranslationKey().replace("block.minecraft.", "")+"_camo_door"), new BlockItem(doorCopyBlockMap.get(block), new Item.Settings().group(SecretRooms.MAIN_GROUP)));
+			Registry.register(Registry.BLOCK, new Identifier(MOD_ID , block.getTranslationKey().replaceAll("block\\.(minecraft|blockus)\\.", "")+"_camo_door"), doorCopyBlockMap.get(block));
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, block.getTranslationKey().replaceAll("block\\.(minecraft|blockus)\\.", "")+"_camo_door"), new BlockItem(doorCopyBlockMap.get(block), new Item.Settings().group(SecretRooms.MAIN_GROUP)));
 		}
 	}
 
@@ -81,7 +81,7 @@ public class SecretRooms implements ModInitializer {
 		return (blockState) -> {
 			return !(Boolean)blockState.get(Properties.POWERED) ? litLevel : 0;
 		};
-		}
+	}
 				
 	@Override
 	public void onInitialize() {
@@ -97,40 +97,7 @@ public class SecretRooms implements ModInitializer {
 		Registry.register(Registry.BLOCK, new Identifier(MOD_ID , "soul_lantern_button"), SOUL_LANTERN_BUTTON_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "soul_lantern_button"), new BlockItem(SOUL_LANTERN_BUTTON_BLOCK, new Item.Settings().group(SecretRooms.MAIN_GROUP)));
 
-		copyBlockList.add(Blocks.OAK_PLANKS);
-		copyBlockList.add(Blocks.ACACIA_PLANKS);
-		copyBlockList.add(Blocks.DARK_OAK_PLANKS);
-		copyBlockList.add(Blocks.JUNGLE_PLANKS);
-		copyBlockList.add(Blocks.BIRCH_PLANKS);
-		copyBlockList.add(Blocks.SPRUCE_PLANKS);
-		copyBlockList.add(Blocks.CRIMSON_PLANKS);
-		copyBlockList.add(Blocks.WARPED_PLANKS);
-		copyBlockList.add(Blocks.DIRT);
-		copyBlockList.add(Blocks.STONE);
-		copyBlockList.add(Blocks.SMOOTH_STONE);
-		copyBlockList.add(Blocks.STONE_BRICKS);
-		copyBlockList.add(Blocks.CRACKED_STONE_BRICKS);
-		copyBlockList.add(Blocks.COBBLESTONE);
-		copyBlockList.add(Blocks.SAND);
-		copyBlockList.add(Blocks.GRAVEL);
-		copyBlockList.add(Blocks.CLAY);
-		copyBlockList.add(Blocks.BLACKSTONE);
-		copyBlockList.add(Blocks.POLISHED_BLACKSTONE);
-		copyBlockList.add(Blocks.GILDED_BLACKSTONE);
-		copyBlockList.add(Blocks.POLISHED_BLACKSTONE_BRICKS);
-		copyBlockList.add(Blocks.NETHERRACK);
-		copyBlockList.add(Blocks.END_STONE);
-		copyBlockList.add(Blocks.PURPUR_BLOCK);
-		copyBlockList.add(Blocks.PURPUR_PILLAR);
-		copyBlockList.add(Blocks.ANDESITE);
-		copyBlockList.add(Blocks.POLISHED_ANDESITE);
-		copyBlockList.add(Blocks.DIORITE);
-		copyBlockList.add(Blocks.POLISHED_DIORITE);
-		copyBlockList.add(Blocks.GRANITE);
-		copyBlockList.add(Blocks.POLISHED_GRANITE);
-		copyBlockList.add(Blocks.BRICKS);
-		copyBlockList.add(Blocks.NETHER_BRICKS);
-
+		VanillaList.addBlocks();
 		registerOneWayGlassBlocks();
 		registerCamoDoorBlocks();
 	}

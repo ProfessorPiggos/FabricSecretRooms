@@ -1,0 +1,10 @@
+{
+	"variants": { 
+		"facing=up": {"model":"secretrooms:block/one_way_glass_pink_glazed_terracotta", "x":270, "uvlock":true} ,
+		"facing=down": {"model":"secretrooms:block/one_way_glass_pink_glazed_terracotta", "x":90, "uvlock":true},
+		"facing=north": {"model":"secretrooms:block/one_way_glass_pink_glazed_terracotta", "y":0, "uvlock":true},
+		"facing=east": {"model":"secretrooms:block/one_way_glass_pink_glazed_terracotta", "y": 90 , "uvlock":true},
+		"facing=south": {"model":"secretrooms:block/one_way_glass_pink_glazed_terracotta", "y": 180, "uvlock":true },
+		"facing=west": {"model":"secretrooms:block/one_way_glass_pink_glazed_terracotta", "y": 270, "uvlock":true}
+	}
+}

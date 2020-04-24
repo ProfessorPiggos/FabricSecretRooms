@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"particle": "minecraft:block/quartz_pillar",
+		"south": "minecraft:block/quartz_pillar",
+		"north": "minecraft:block/glass",
+		"east": "minecraft:block/quartz_pillar",
+		"down": "minecraft:block/quartz_pillar",
+		"up": "minecraft:block/quartz_pillar",
+		"west": "minecraft:block/quartz_pillar"
+	}
+}

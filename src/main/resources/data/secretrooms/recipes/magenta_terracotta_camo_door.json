@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "secretrooms:camo_paste"
+    },
+    {
+      "item": "minecraft:magenta_terracotta"
+    },
+    {
+      "item": "minecraft:oak_door"
+    }
+  ],
+  "result": {
+    "item": "secretrooms:magenta_terracotta_camo_door",
+    "count": 1
+  }
+}

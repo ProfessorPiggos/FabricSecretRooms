@@ -1,12 +1,12 @@
 {
 	"parent": "block/cube",
 	"textures": {
-		"particle": "block/polished_blackstone_bricks",
-		"south": "block/polished_blackstone_bricks",
-		"north": "block/glass",
-		"east": "block/polished_blackstone_bricks",
-		"down": "block/polished_blackstone_bricks",
-		"up": "block/polished_blackstone_bricks",
-		"west": "block/polished_blackstone_bricks"
+		"particle": "minecraft:block/polished_blackstone_bricks",
+		"south": "minecraft:block/polished_blackstone_bricks",
+		"north": "minecraft:block/glass",
+		"east": "minecraft:block/polished_blackstone_bricks",
+		"down": "minecraft:block/polished_blackstone_bricks",
+		"up": "minecraft:block/polished_blackstone_bricks",
+		"west": "minecraft:block/polished_blackstone_bricks"
 	}
 }

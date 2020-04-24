@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "secretrooms:item/red_terracotta_camo_door"
+  }
+}

@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"particle": "minecraft:block/red_glazed_terracotta",
+		"south": "minecraft:block/red_glazed_terracotta",
+		"north": "minecraft:block/glass",
+		"east": "minecraft:block/red_glazed_terracotta",
+		"down": "minecraft:block/red_glazed_terracotta",
+		"up": "minecraft:block/red_glazed_terracotta",
+		"west": "minecraft:block/red_glazed_terracotta"
+	}
+}

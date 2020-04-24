@@ -1,12 +1,12 @@
 {
 	"parent": "block/cube",
 	"textures": {
-		"particle": "block/stone",
-		"south": "block/stone",
-		"north": "block/glass",
-		"east": "block/stone",
-		"down": "block/stone",
-		"up": "block/stone",
-		"west": "block/stone"
+		"particle": "minecraft:block/stone",
+		"south": "minecraft:block/stone",
+		"north": "minecraft:block/glass",
+		"east": "minecraft:block/stone",
+		"down": "minecraft:block/stone",
+		"up": "minecraft:block/stone",
+		"west": "minecraft:block/stone"
 	}
 }

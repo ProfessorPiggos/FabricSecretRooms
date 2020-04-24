@@ -2,9 +2,9 @@
 	"variants": { 
 		"facing=up": {"model":"secretrooms:block/one_way_glass_netherrack", "x":270, "uvlock":true} ,
 		"facing=down": {"model":"secretrooms:block/one_way_glass_netherrack", "x":90, "uvlock":true},
-		"facing=north": { "model": "secretrooms:block/one_way_glass_netherrack","y":0, "uvlock":true},
-		"facing=east": { "model": "secretrooms:block/one_way_glass_netherrack", "y": 90 , "uvlock":true},
-		"facing=south": { "model": "secretrooms:block/one_way_glass_netherrack", "y": 180, "uvlock":true },
-		"facing=west": { "model": "secretrooms:block/one_way_glass_netherrack", "y": 270, "uvlock":true}
+		"facing=north": {"model":"secretrooms:block/one_way_glass_netherrack", "y":0, "uvlock":true},
+		"facing=east": {"model":"secretrooms:block/one_way_glass_netherrack", "y": 90 , "uvlock":true},
+		"facing=south": {"model":"secretrooms:block/one_way_glass_netherrack", "y": 180, "uvlock":true },
+		"facing=west": {"model":"secretrooms:block/one_way_glass_netherrack", "y": 270, "uvlock":true}
 	}
 }

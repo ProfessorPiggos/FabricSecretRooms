@@ -1,12 +1,12 @@
 {
 	"parent": "block/cube",
 	"textures": {
-		"particle": "block/cracked_stone_bricks",
-		"south": "block/cracked_stone_bricks",
-		"north": "block/glass",
-		"east": "block/cracked_stone_bricks",
-		"down": "block/cracked_stone_bricks",
-		"up": "block/cracked_stone_bricks",
-		"west": "block/cracked_stone_bricks"
+		"particle": "minecraft:block/cracked_stone_bricks",
+		"south": "minecraft:block/cracked_stone_bricks",
+		"north": "minecraft:block/glass",
+		"east": "minecraft:block/cracked_stone_bricks",
+		"down": "minecraft:block/cracked_stone_bricks",
+		"up": "minecraft:block/cracked_stone_bricks",
+		"west": "minecraft:block/cracked_stone_bricks"
 	}
 }

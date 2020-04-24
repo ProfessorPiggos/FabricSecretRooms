@@ -1,0 +1,7 @@
+{
+  "parent": "secretrooms:block/door_bottom",
+  "textures": {
+    "top": "minecraft:block/chiseled_quartz_block",
+    "bottom": "minecraft:block/chiseled_quartz_block"
+  }
+}

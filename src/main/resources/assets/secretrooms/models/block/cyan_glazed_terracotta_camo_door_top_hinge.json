@@ -1,0 +1,7 @@
+{
+  "parent": "secretrooms:block/door_top_rh",
+  "textures": {
+    "top": "minecraft:block/cyan_glazed_terracotta",
+    "bottom": "minecraft:block/cyan_glazed_terracotta"
+  }
+}

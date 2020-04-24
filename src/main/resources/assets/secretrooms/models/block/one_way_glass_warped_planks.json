@@ -1,12 +1,12 @@
 {
 	"parent": "block/cube",
 	"textures": {
-		"particle": "block/warped_planks",
-		"south": "block/warped_planks",
-		"north": "block/glass",
-		"east": "block/warped_planks",
-		"down": "block/warped_planks",
-		"up": "block/warped_planks",
-		"west": "block/warped_planks"
+		"particle": "minecraft:block/warped_planks",
+		"south": "minecraft:block/warped_planks",
+		"north": "minecraft:block/glass",
+		"east": "minecraft:block/warped_planks",
+		"down": "minecraft:block/warped_planks",
+		"up": "minecraft:block/warped_planks",
+		"west": "minecraft:block/warped_planks"
 	}
 }
