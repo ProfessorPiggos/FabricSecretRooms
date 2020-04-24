@@ -3,7 +3,6 @@ package com.github.rionlion100;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.render.RenderLayer;
-import com.github.rionlion100.secretrooms;
 
 public class secretroomsclient implements ClientModInitializer {
 	@Override
