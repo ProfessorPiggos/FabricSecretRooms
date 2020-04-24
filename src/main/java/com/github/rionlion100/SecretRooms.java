@@ -19,14 +19,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class SecretRooms implements ModInitializer {
-	public static Map<Block, OneWayGlassBlock> ONE_WAY_GLASS_MAP = new HashMap<Block, OneWayGlassBlock>();
-	public static List<Block> ONE_WAY_GLASS_SOURCE_BLOCKS = new ArrayList<Block>();
+	public static Map<Block, OneWayGlassBlock> glassCopyBlockMap = new HashMap<Block, OneWayGlassBlock>();
+	public static Map<Block, CamoDoorBlock> doorCopyBlockMap = new HashMap<Block, CamoDoorBlock>();
+	public static List<Block> copyBlockList = new ArrayList<Block>();
 	public static final Item CAMO_PASTE = new Item(new Item.Settings().group(SecretRooms.MAIN_GROUP).recipeRemainder(Items.BUCKET).maxCount(16));
 	public static final TorchLeverBlock TORCH_LEVER_BLOCK = new TorchLeverBlock(AbstractBlock.Settings.copy(Blocks.TORCH).lightLevel(createLightLevelFromBlockState(10)));
 	public static final TorchLeverBlock SOUL_TORCH_LEVER_BLOCK = new SoulTorchLeverBlock(AbstractBlock.Settings.copy(Blocks.SOUL_TORCH).lightLevel(createLightLevelFromBlockState(10)));
@@ -46,19 +46,34 @@ public class SecretRooms implements ModInitializer {
 			stacks.add(new ItemStack(SecretRooms.SOUL_TORCH_LEVER_BLOCK));
 			stacks.add(new ItemStack(SecretRooms.LANTERN_BUTTON_BLOCK));
 			stacks.add(new ItemStack(SecretRooms.SOUL_LANTERN_BUTTON_BLOCK));
-			for (int i = 0; i < ONE_WAY_GLASS_SOURCE_BLOCKS.size(); i++){
-				Block block = ONE_WAY_GLASS_SOURCE_BLOCKS.get(i);
-				OneWayGlassBlock oneWayGlassBlock = ONE_WAY_GLASS_MAP.get(block);
+			for (int i = 0; i < copyBlockList.size(); i++){
+				Block block = copyBlockList.get(i);
+				OneWayGlassBlock oneWayGlassBlock = glassCopyBlockMap.get(block);
 				stacks.add(new ItemStack(oneWayGlassBlock));
 			}
+			for (int i = 0; i < copyBlockList.size(); i++){
+				Block block = copyBlockList.get(i);
+				CamoDoorBlock camoDoorBlock = doorCopyBlockMap.get(block);
+				stacks.add(new ItemStack(camoDoorBlock));
+				}
+
 		}).build();
 
 	private void registerOneWayGlassBlocks() {
-		for (int i = 0; i < ONE_WAY_GLASS_SOURCE_BLOCKS.size(); i++){
-			Block block = ONE_WAY_GLASS_SOURCE_BLOCKS.get(i);
-			ONE_WAY_GLASS_MAP.put(block, new OneWayGlassBlock(FabricBlockSettings.of(Material.GLASS).hardness(0.3F).sounds(BlockSoundGroup.GLASS).nonOpaque().build()));
-			Registry.register(Registry.BLOCK, new Identifier(MOD_ID , "one_way_glass_"+block.getTranslationKey().replace("block.minecraft.", "")), ONE_WAY_GLASS_MAP.get(block));
-			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "one_way_glass_"+block.getTranslationKey().replace("block.minecraft.", "")), new BlockItem(ONE_WAY_GLASS_MAP.get(block), new Item.Settings().group(SecretRooms.MAIN_GROUP)));
+		for (int i = 0; i < copyBlockList.size(); i++){
+			Block block = copyBlockList.get(i);
+			glassCopyBlockMap.put(block, new OneWayGlassBlock(FabricBlockSettings.copy(Blocks.GLASS).build()));
+			Registry.register(Registry.BLOCK, new Identifier(MOD_ID , "one_way_glass_"+block.getTranslationKey().replace("block.minecraft.", "")), glassCopyBlockMap.get(block));
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "one_way_glass_"+block.getTranslationKey().replace("block.minecraft.", "")), new BlockItem(glassCopyBlockMap.get(block), new Item.Settings().group(SecretRooms.MAIN_GROUP)));
+		}
+	}
+
+	private void registerCamoDoorBlocks() {
+		for (int i = 0; i < copyBlockList.size(); i++){
+			Block block = copyBlockList.get(i);
+			doorCopyBlockMap.put(block, new CamoDoorBlock(FabricBlockSettings.copy(block).build(), block.getSoundGroup(block.getDefaultState())));
+			Registry.register(Registry.BLOCK, new Identifier(MOD_ID , block.getTranslationKey().replace("block.minecraft.", "")+"_camo_door"), doorCopyBlockMap.get(block));
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, block.getTranslationKey().replace("block.minecraft.", "")+"_camo_door"), new BlockItem(doorCopyBlockMap.get(block), new Item.Settings().group(SecretRooms.MAIN_GROUP)));
 		}
 	}
 
@@ -82,40 +97,41 @@ public class SecretRooms implements ModInitializer {
 		Registry.register(Registry.BLOCK, new Identifier(MOD_ID , "soul_lantern_button"), SOUL_LANTERN_BUTTON_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "soul_lantern_button"), new BlockItem(SOUL_LANTERN_BUTTON_BLOCK, new Item.Settings().group(SecretRooms.MAIN_GROUP)));
 
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.OAK_PLANKS);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.ACACIA_PLANKS);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.DARK_OAK_PLANKS);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.JUNGLE_PLANKS);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.BIRCH_PLANKS);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.SPRUCE_PLANKS);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.CRIMSON_PLANKS);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.WARPED_PLANKS);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.DIRT);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.STONE);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.SMOOTH_STONE);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.STONE_BRICKS);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.CRACKED_STONE_BRICKS);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.COBBLESTONE);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.SAND);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.GRAVEL);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.CLAY);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.BLACKSTONE);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.POLISHED_BLACKSTONE);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.GILDED_BLACKSTONE);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.POLISHED_BLACKSTONE_BRICKS);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.NETHERRACK);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.END_STONE);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.PURPUR_BLOCK);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.PURPUR_PILLAR);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.ANDESITE);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.POLISHED_ANDESITE);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.DIORITE);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.POLISHED_DIORITE);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.GRANITE);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.POLISHED_GRANITE);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.BRICKS);
-		ONE_WAY_GLASS_SOURCE_BLOCKS.add(Blocks.NETHER_BRICKS);
+		copyBlockList.add(Blocks.OAK_PLANKS);
+		copyBlockList.add(Blocks.ACACIA_PLANKS);
+		copyBlockList.add(Blocks.DARK_OAK_PLANKS);
+		copyBlockList.add(Blocks.JUNGLE_PLANKS);
+		copyBlockList.add(Blocks.BIRCH_PLANKS);
+		copyBlockList.add(Blocks.SPRUCE_PLANKS);
+		copyBlockList.add(Blocks.CRIMSON_PLANKS);
+		copyBlockList.add(Blocks.WARPED_PLANKS);
+		copyBlockList.add(Blocks.DIRT);
+		copyBlockList.add(Blocks.STONE);
+		copyBlockList.add(Blocks.SMOOTH_STONE);
+		copyBlockList.add(Blocks.STONE_BRICKS);
+		copyBlockList.add(Blocks.CRACKED_STONE_BRICKS);
+		copyBlockList.add(Blocks.COBBLESTONE);
+		copyBlockList.add(Blocks.SAND);
+		copyBlockList.add(Blocks.GRAVEL);
+		copyBlockList.add(Blocks.CLAY);
+		copyBlockList.add(Blocks.BLACKSTONE);
+		copyBlockList.add(Blocks.POLISHED_BLACKSTONE);
+		copyBlockList.add(Blocks.GILDED_BLACKSTONE);
+		copyBlockList.add(Blocks.POLISHED_BLACKSTONE_BRICKS);
+		copyBlockList.add(Blocks.NETHERRACK);
+		copyBlockList.add(Blocks.END_STONE);
+		copyBlockList.add(Blocks.PURPUR_BLOCK);
+		copyBlockList.add(Blocks.PURPUR_PILLAR);
+		copyBlockList.add(Blocks.ANDESITE);
+		copyBlockList.add(Blocks.POLISHED_ANDESITE);
+		copyBlockList.add(Blocks.DIORITE);
+		copyBlockList.add(Blocks.POLISHED_DIORITE);
+		copyBlockList.add(Blocks.GRANITE);
+		copyBlockList.add(Blocks.POLISHED_GRANITE);
+		copyBlockList.add(Blocks.BRICKS);
+		copyBlockList.add(Blocks.NETHER_BRICKS);
 
 		registerOneWayGlassBlocks();
+		registerCamoDoorBlocks();
 	}
 }	
