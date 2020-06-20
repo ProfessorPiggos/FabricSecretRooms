@@ -36,7 +36,7 @@ public class TorchLeverBlock extends WallTorchBlock{
               this.updateNeighbors(state, world, pos);
            }
   
-           super.onBlockRemoved(state, world, pos, newState, moved);
+           super.onStateReplaced(state, world, pos, newState, moved);
         }
      }
 

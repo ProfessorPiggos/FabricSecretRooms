@@ -19,7 +19,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.IWorld;
+import net.minecraft.world.WorldAccess;
 import net.minecraft.world.World;
 
 public class LanternButtonBlock extends LanternBlock{
@@ -58,7 +58,7 @@ public class LanternButtonBlock extends LanternBlock{
            }
     }
   
-    private void playClickSound(PlayerEntity player, IWorld world, BlockState state, BlockPos pos, boolean powered) {
+    private void playClickSound(PlayerEntity player, WorldAccess world, BlockState state, BlockPos pos, boolean powered) {
         world.playSound((Boolean)state.get(POWERED) ? player : null, pos, this.getClickSound((Boolean)state.get(POWERED)), SoundCategory.BLOCKS, 0.3F, powered ? 0.6F : 0.5F);
 
     }
@@ -66,12 +66,12 @@ public class LanternButtonBlock extends LanternBlock{
         return SoundEvents.BLOCK_LANTERN_HIT;
     }
 
-    public void onBlockRemoved(BlockState state, World world, BlockPos pos, BlockState newState, boolean notify) {
+    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean notify) {
         if (!notify && state.getBlock() != newState.getBlock()) {
             if ((Boolean)state.get(POWERED)) {
             this.updateNeighbors(state, world, pos);
             }
-        super.onBlockRemoved(state, world, pos, newState, notify);
+        super.onStateReplaced(state, world, pos, newState, notify);
         }
     }
 

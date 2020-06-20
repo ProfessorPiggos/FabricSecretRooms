@@ -3,9 +3,8 @@ package com.github.rionlion100;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.DoorBlock;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -14,11 +13,9 @@ import net.minecraft.world.World;
 
 public class CamoDoorBlock extends DoorBlock {
 
-    private BlockSoundGroup soundGroup;
 
-    protected CamoDoorBlock(Settings settings, BlockSoundGroup soundGroupIn) {
+    protected CamoDoorBlock(Settings settings) {
         super(settings);
-        this.soundGroup = soundGroupIn;
     }
 
     @Override
@@ -26,18 +23,7 @@ public class CamoDoorBlock extends DoorBlock {
             BlockHitResult hit) {
         state = (BlockState) state.cycle(OPEN);
         world.setBlockState(pos, state, 10);
-        world.playSound(player, pos, (Boolean)state.get(OPEN) ? this.getCloseSoundEvent() : this.getOpenSoundEvent(), SoundCategory.BLOCKS, 1.0F, 1.0F);
+        world.playSound(player, pos, (Boolean)state.get(OPEN) ? SoundEvents.BLOCK_WOODEN_DOOR_CLOSE : SoundEvents.BLOCK_WOODEN_DOOR_OPEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
         return ActionResult.SUCCESS;
-    }
-     
-
-    private SoundEvent getOpenSoundEvent() {
-            
-        return soundGroup.getPlaceSound();
-    }
-    
-    private SoundEvent getCloseSoundEvent() {
-            
-        return soundGroup.getPlaceSound();
     }
 }
