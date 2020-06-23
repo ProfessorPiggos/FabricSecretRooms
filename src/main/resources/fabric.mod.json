@@ -19,17 +19,17 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.github.rionlion100.secretrooms"
+      "com.github.rionlion100.SecretRooms"
     ],
     "client": [
-      "com.github.rionlion100.secretroomsclient"
+      "com.github.rionlion100.SecretRoomsClient"
     ]
   },
 
   "depends": {
     "fabricloader": ">=0.7.2",
     "fabric": "*",
-    "minecraft": "1.15.x"
+    "minecraft": "1.16.x"
   },
   "suggests": {
     "flamingo": "*"

@@ -24,13 +24,11 @@ import net.minecraft.world.World;
 
 public class TorchLeverBlock extends WallTorchBlock{
     public static final BooleanProperty POWERED = Properties.POWERED;
+
     public TorchLeverBlock(Settings settings) {
-        super(settings);
+        super(settings, null);
         this.setDefaultState(getStateManager().getDefaultState().with(POWERED, false).with(FACING,Direction.NORTH));
         }
-    public int getLuminance(BlockState state) {
-        return state.get(POWERED) ? super.getLuminance(state) : 14;
-    }
 
     public void onBlockRemoved(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (!moved && state.getBlock() != newState.getBlock()) {
@@ -38,7 +36,7 @@ public class TorchLeverBlock extends WallTorchBlock{
               this.updateNeighbors(state, world, pos);
            }
   
-           super.onBlockRemoved(state, world, pos, newState, moved);
+           super.onStateReplaced(state, world, pos, newState, moved);
         }
      }
 

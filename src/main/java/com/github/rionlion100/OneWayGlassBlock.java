@@ -2,8 +2,8 @@ package com.github.rionlion100;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.FacingBlock;
 import net.minecraft.block.GlassBlock;
-import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
@@ -12,11 +12,11 @@ import net.minecraft.util.math.Direction;
 
 public class OneWayGlassBlock extends GlassBlock{
     public static final DirectionProperty FACING;
-    static {FACING = HorizontalFacingBlock.FACING;}
+    static {FACING = FacingBlock.FACING;}
     
     public OneWayGlassBlock(Settings settings) {
         super(settings);
-        setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
+        setDefaultState(this.stateManager.getDefaultState().with(Properties.FACING, Direction.NORTH));
     }
     
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
@@ -24,6 +24,8 @@ public class OneWayGlassBlock extends GlassBlock{
     }
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return (BlockState)this.getDefaultState().with(FACING, ctx.getPlayerFacing());
-    } 
+        Direction direction = ctx.getPlayerLookDirection().getOpposite();
+        BlockState blockState = ctx.getWorld().getBlockState(ctx.getBlockPos().offset(direction.getOpposite()));
+        return blockState.getBlock() == this && blockState.get(FACING) == direction.getOpposite() ? (BlockState)this.getDefaultState().with(FACING, direction.getOpposite()) : (BlockState)this.getDefaultState().with(FACING, direction);
+     }
 }

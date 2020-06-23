@@ -1,8 +1,0 @@
-{
-	"variants": { 
-		"facing=west": { "model": "secretrooms:block/one_way_glass_stone" },
-		"facing=north": { "model": "secretrooms:block/one_way_glass_stone", "y": 90 },
-		"facing=east": { "model": "secretrooms:block/one_way_glass_stone", "y": 180 },
-		"facing=south": { "model": "secretrooms:block/one_way_glass_stone", "y": 270 } 
-	}
-}

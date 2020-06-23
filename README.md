@@ -1,4 +1,6 @@
 # FabricSecretRooms
+
 ## Dependencies
-- Fabric 0.4.27+build.286-1.15
-- Minecraft 1.15.1
+
+- Fabric 0.4.33+build.299-1.16
+- Minecraft 20w017a
