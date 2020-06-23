@@ -13,7 +13,7 @@
     "sources": "https://github.com/rionlion100/secretrooms"
   },
 
-  "license": "GNU-GPLv3
+  "license": "GNU-GPLv3"
   "icon": "assets/secretrooms/icon.png",
 
   "environment": "*",
