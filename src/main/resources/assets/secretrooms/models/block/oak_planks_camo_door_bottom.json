@@ -1,7 +1,0 @@
-{
-  "parent": "secretrooms:block/door_bottom",
-  "textures": {
-    "top": "minecraft:block/oak_planks",
-    "bottom": "minecraft:block/oak_planks"
-  }
-}

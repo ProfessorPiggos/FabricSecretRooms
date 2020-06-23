@@ -1,7 +1,0 @@
-{
-  "parent": "secretrooms:block/door_bottom",
-  "textures": {
-    "top": "minecraft:block/purpur_block",
-    "bottom": "minecraft:block/purpur_block"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "secretrooms:item/warped_planks_camo_door"
-  }
-}
