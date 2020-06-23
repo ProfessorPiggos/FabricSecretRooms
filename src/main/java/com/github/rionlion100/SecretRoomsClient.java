@@ -16,5 +16,6 @@ public class SecretRoomsClient implements ClientModInitializer {
 		for (int i = 0; i < SecretRooms.copyBlockList.size(); i++){
 			BlockRenderLayerMap.INSTANCE.putBlock(SecretRooms.glassCopyBlockMap.get(SecretRooms.copyBlockList.get(i)), RenderLayer.getCutout());
 		}
+		RegisterAssets.register();
 	}
 }

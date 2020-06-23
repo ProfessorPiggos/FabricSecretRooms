@@ -10,14 +10,20 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version+ "+" +project.minecraft_version
 group = project.maven_group
 
+repositories { 
+    jcenter() 
+}
+
 minecraft {
 }
 
 dependencies {
-    minecraft "com.mojang:minecraft:1.16-rc1"
-    mappings "net.fabricmc:yarn:1.16-rc1+build.5:v2"
+    minecraft "com.mojang:minecraft:1.16"
+    mappings "net.fabricmc:yarn:1.16+build.1:v2"
     modImplementation "net.fabricmc:fabric-loader:0.8.8+build.202"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:0.12.5+build.367-1.16"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:0.13.1+build.370-1.16"
+	modImplementation "com.lettuce.fudge:artifice:0.8.0+1.16-rc1"
+  	include "com.lettuce.fudge:artifice:0.8.0+1.16-rc1"
 }
 processResources {
 	inputs.property "version", project.version

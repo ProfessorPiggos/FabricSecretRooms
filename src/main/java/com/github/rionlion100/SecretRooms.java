@@ -7,8 +7,8 @@ import java.util.Map;
 import java.util.function.ToIntFunction;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -26,6 +26,8 @@ import net.minecraft.util.registry.Registry;
 public class SecretRooms implements ModInitializer {
 	public static Map<Block, OneWayGlassBlock> glassCopyBlockMap = new HashMap<Block, OneWayGlassBlock>();
 	public static Map<Block, CamoDoorBlock> doorCopyBlockMap = new HashMap<Block, CamoDoorBlock>();
+	public static Map<Block, Block> ghostCopyBlockMap = new HashMap<Block, Block>();
+	public static Map<Block, CamoTrapdoorBlock> trapdoorCopyBlockMap = new HashMap<Block, CamoTrapdoorBlock>();
 	public static List<Block> copyBlockList = new ArrayList<Block>();
 	public static final Item CAMO_PASTE = new Item(new Item.Settings().group(SecretRooms.MAIN_GROUP).recipeRemainder(Items.BUCKET).maxCount(16));
 	public static final TorchLeverBlock TORCH_LEVER_BLOCK = new TorchLeverBlock(AbstractBlock.Settings.copy(Blocks.TORCH).lightLevel(createLightLevelFromBlockState(10)));
@@ -33,7 +35,8 @@ public class SecretRooms implements ModInitializer {
 	public static final SolidAirBlock SOLID_AIR_BLOCK = new SolidAirBlock(FabricBlockSettings.of(Material.GLASS).hardness(.45f).nonOpaque());
 	public static final LanternButtonBlock LANTERN_BUTTON_BLOCK = new LanternButtonBlock(AbstractBlock.Settings.copy(Blocks.LANTERN).lightLevel(createLightLevelFromBlockState(15)));
 	public static final LanternButtonBlock SOUL_LANTERN_BUTTON_BLOCK = new LanternButtonBlock(AbstractBlock.Settings.copy(Blocks.SOUL_LANTERN).lightLevel(createLightLevelFromBlockState(10)));
-	private static final String MOD_ID = "secretrooms";
+	public static final String MOD_ID = "secretrooms";
+
 
 	public static final ItemGroup MAIN_GROUP = FabricItemGroupBuilder.create(
 		new Identifier(MOD_ID, "general"))
@@ -56,6 +59,11 @@ public class SecretRooms implements ModInitializer {
 				CamoDoorBlock camoDoorBlock = doorCopyBlockMap.get(block);
 				stacks.add(new ItemStack(camoDoorBlock));
 				}
+			for (int i = 0; i < copyBlockList.size(); i++){
+				Block block = copyBlockList.get(i);
+				Block ghostBlock = ghostCopyBlockMap.get(block);
+				stacks.add(new ItemStack(ghostBlock));
+				}
 
 		}).build();
 
@@ -63,8 +71,8 @@ public class SecretRooms implements ModInitializer {
 		for (int i = 0; i < copyBlockList.size(); i++){
 			Block block = copyBlockList.get(i);
 			glassCopyBlockMap.put(block, new OneWayGlassBlock(FabricBlockSettings.copy(Blocks.GLASS)));
-			Registry.register(Registry.BLOCK, new Identifier(MOD_ID , "one_way_glass_"+block.getTranslationKey().replaceAll("block\\.(minecraft|blockus)\\.", "")), glassCopyBlockMap.get(block));
-			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "one_way_glass_"+block.getTranslationKey().replaceAll("block\\.(minecraft|blockus)\\.", "")), new BlockItem(glassCopyBlockMap.get(block), new Item.Settings().group(SecretRooms.MAIN_GROUP)));
+			Registry.register(Registry.BLOCK, new Identifier(MOD_ID , block.getTranslationKey().replaceAll("block\\.(minecraft|blockus)\\.", "")+"_glass"), glassCopyBlockMap.get(block));
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, block.getTranslationKey().replaceAll("block\\.(minecraft|blockus)\\.", "")+"_glass"), new BlockItem(glassCopyBlockMap.get(block), new Item.Settings().group(SecretRooms.MAIN_GROUP)));
 		}
 	}
 
@@ -74,6 +82,24 @@ public class SecretRooms implements ModInitializer {
 			doorCopyBlockMap.put(block, new CamoDoorBlock(FabricBlockSettings.copy(block)));
 			Registry.register(Registry.BLOCK, new Identifier(MOD_ID , block.getTranslationKey().replaceAll("block\\.(minecraft|blockus)\\.", "")+"_camo_door"), doorCopyBlockMap.get(block));
 			Registry.register(Registry.ITEM, new Identifier(MOD_ID, block.getTranslationKey().replaceAll("block\\.(minecraft|blockus)\\.", "")+"_camo_door"), new BlockItem(doorCopyBlockMap.get(block), new Item.Settings().group(SecretRooms.MAIN_GROUP)));
+		}
+	}
+
+	private void registerGhostBlocks() {
+		for (int i = 0; i < copyBlockList.size(); i++){
+			Block block = copyBlockList.get(i);
+			ghostCopyBlockMap.put(block, new Block(FabricBlockSettings.copy(block).noCollision()));
+			Registry.register(Registry.BLOCK, new Identifier(MOD_ID , block.getTranslationKey().replaceAll("block\\.(minecraft|blockus)\\.", "")+"_ghost_block"), ghostCopyBlockMap.get(block));
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, block.getTranslationKey().replaceAll("block\\.(minecraft|blockus)\\.", "")+"_ghost_block"), new BlockItem(ghostCopyBlockMap.get(block), new Item.Settings().group(SecretRooms.MAIN_GROUP)));
+		}
+	}
+
+	private void registerCamoTrapdoorBlocks() {
+		for (int i = 0; i < copyBlockList.size(); i++){
+			Block block = copyBlockList.get(i);
+			trapdoorCopyBlockMap.put(block, new CamoTrapdoorBlock(FabricBlockSettings.copy(block)));
+			Registry.register(Registry.BLOCK, new Identifier(MOD_ID, block.getTranslationKey().replaceAll("block\\.(minecraft|blockus)\\.", "")+"_camo_trapdoor"), trapdoorCopyBlockMap.get(block));
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, block.getTranslationKey().replaceAll("block\\.(minecraft|blockus)\\.","")+"_camo_trapdoor"), new BlockItem(trapdoorCopyBlockMap.get(block), new Item.Settings().group(SecretRooms.MAIN_GROUP)));
 		}
 	}
 
@@ -100,5 +126,9 @@ public class SecretRooms implements ModInitializer {
 		VanillaList.addBlocks();
 		registerOneWayGlassBlocks();
 		registerCamoDoorBlocks();
+		registerGhostBlocks();
+		registerCamoTrapdoorBlocks();
+
+		RegisterData.register();		
 	}
 }	

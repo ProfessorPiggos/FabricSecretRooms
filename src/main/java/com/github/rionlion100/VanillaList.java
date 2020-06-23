@@ -80,6 +80,5 @@ public class VanillaList {
         SecretRooms.copyBlockList.add(Blocks.QUARTZ_BRICKS);
         SecretRooms.copyBlockList.add(Blocks.QUARTZ_PILLAR);
         SecretRooms.copyBlockList.add(Blocks.CHISELED_QUARTZ_BLOCK);
-        SecretRooms.copyBlockList.add(Blocks.SMOOTH_QUARTZ);
     }
 }
