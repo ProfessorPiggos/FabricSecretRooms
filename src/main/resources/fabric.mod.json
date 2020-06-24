@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Secret Rooms",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "A fabric inspiration of the original Secret Rooms mod!",
   "authors": [
     "Spaceman"
   ],
@@ -13,7 +13,7 @@
     "sources": "https://github.com/rionlion100/secretrooms"
   },
 
-  "license": "CC0-1.0",
+  "license": "GNU-GPLv3",
   "icon": "assets/secretrooms/icon.png",
 
   "environment": "*",
