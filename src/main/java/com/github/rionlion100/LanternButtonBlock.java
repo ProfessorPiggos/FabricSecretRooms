@@ -24,10 +24,11 @@ import net.minecraft.world.World;
 
 public class LanternButtonBlock extends LanternBlock{
     public static final BooleanProperty POWERED = Properties.POWERED;
+    public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
     public LanternButtonBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(getStateManager().getDefaultState().with(POWERED, false).with(HANGING,false));
+        this.setDefaultState(getStateManager().getDefaultState().with(POWERED, false).with(HANGING,false).with(WATERLOGGED,false));
     }
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
@@ -89,8 +90,7 @@ public class LanternButtonBlock extends LanternBlock{
     
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(POWERED);
-        builder.add(HANGING);
+        builder.add(POWERED, HANGING, WATERLOGGED);
     }
 
     private void updateNeighbors(BlockState state, World world, BlockPos pos) {

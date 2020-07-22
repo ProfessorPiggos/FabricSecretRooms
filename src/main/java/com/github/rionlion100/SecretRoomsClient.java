@@ -13,6 +13,7 @@ public class SecretRoomsClient implements ClientModInitializer {
 		BlockRenderLayerMap.INSTANCE.putBlock(SecretRooms.SOLID_AIR_BLOCK, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(SecretRooms.LANTERN_BUTTON_BLOCK, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(SecretRooms.SOUL_LANTERN_BUTTON_BLOCK, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(SecretRooms.REDSTONE_CHAIN, RenderLayer.getCutout());
 		for (int i = 0; i < SecretRooms.copyBlockList.size(); i++){
 			BlockRenderLayerMap.INSTANCE.putBlock(SecretRooms.glassCopyBlockMap.get(SecretRooms.copyBlockList.get(i)), RenderLayer.getCutout());
 		}

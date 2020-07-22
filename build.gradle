@@ -22,8 +22,8 @@ dependencies {
     mappings "net.fabricmc:yarn:20w30a+build.2:v2"
     modImplementation "net.fabricmc:fabric-loader:0.9.0+build.204"
     modImplementation "net.fabricmc.fabric-api:fabric-api:0.15.2+build.382-1.16"
-	modImplementation "com.lettuce.fudge:artifice:0.8.0+1.16-rc1"
-  	include "com.lettuce.fudge:artifice:0.8.0+1.16-rc1"
+	modImplementation "com.lettuce.fudge:artifice:0.12.0+20w29a"
+	include "com.lettuce.fudge:artifice:0.12.0+20w29a"
 }
 processResources {
 	inputs.property "version", project.version
