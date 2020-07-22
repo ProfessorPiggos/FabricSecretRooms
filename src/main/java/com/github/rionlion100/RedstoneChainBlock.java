@@ -64,19 +64,17 @@ class RedstoneChainBlock extends Block implements Waterloggable {
         this.wiresGivePower = true;
         int j = 0;
         if (i < 15) {
-           Iterator<Direction> var5 = Direction.Type.VERTICAL.iterator();
+           Iterator<Direction> verticalDirection = Direction.Type.VERTICAL.iterator();
   
            while(true) {
-              while(var5.hasNext()) {
-                 Direction direction = (Direction)var5.next();
+              while(verticalDirection.hasNext()) {
+                 Direction direction = (Direction)verticalDirection.next();
                  BlockPos blockPos2 = blockPos.offset(direction);
-                 BlockState blockState = world.getBlockState(blockPos2);
-                 j = Math.max(j, this.increasePower(blockState));
+                 BlockState blockState2 = world.getBlockState(blockPos2);
+                 j = Math.max(j, this.increasePower(blockState2));
                  BlockPos blockPos3 = blockPos.up();
-                 if (blockState.isSolidBlock(world, blockPos2) && !world.getBlockState(blockPos3).isSolidBlock(world, blockPos3)) {
+                 if (blockState2.isSolidBlock(world, blockPos2) && !world.getBlockState(blockPos3).isSolidBlock(world, blockPos3)) {
                     j = Math.max(j, this.increasePower(world.getBlockState(blockPos2.up())));
-                 } else if (!blockState.isSolidBlock(world, blockPos2)) {
-                    j = Math.max(j, this.increasePower(world.getBlockState(blockPos2.down())));
                  }
               }
   
@@ -95,18 +93,17 @@ class RedstoneChainBlock extends Block implements Waterloggable {
   
            Set<BlockPos> set = Sets.newHashSet();
            set.add(pos);
-           Direction[] var6 = Direction.values();
-           int var7 = var6.length;
+           Direction[] directions = Direction.values();
   
-           for(int var8 = 0; var8 < var7; ++var8) {
-              Direction direction = var6[var8];
+           for(int j = 0; j < directions.length; ++j) {
+              Direction direction = directions[j];
               set.add(pos.offset(direction));
            }
   
-           Iterator<BlockPos> var10 = set.iterator();
+           Iterator<BlockPos> blockUpdates = set.iterator();
   
-           while(var10.hasNext()) {
-              BlockPos blockPos = (BlockPos)var10.next();
+           while(blockUpdates.hasNext()) {
+              BlockPos blockPos = (BlockPos)blockUpdates.next();
               world.updateNeighborsAlways(blockPos, this);
            }
         }
@@ -116,77 +113,36 @@ class RedstoneChainBlock extends Block implements Waterloggable {
      private int increasePower(BlockState state) {
         return state.isOf(this) ? (Integer)state.get(POWER) : 0;
      }
-  
-     private void updateNeighbors(World world, BlockPos pos) {
-        if (world.getBlockState(pos).isOf(this)) {
-           world.updateNeighborsAlways(pos, this);
-           Direction[] var3 = Direction.values();
-           int var4 = var3.length;
-  
-           for(int var5 = 0; var5 < var4; ++var5) {
-              Direction direction = var3[var5];
-              world.updateNeighborsAlways(pos.offset(direction), this);
-           }
-  
-        }
-     }
-  
+    
      public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
         if (!oldState.isOf(state.getBlock()) && !world.isClient) {
            this.update(world, pos, state);
-           Iterator<Direction> var6 = Direction.Type.VERTICAL.iterator();
+           Iterator<Direction> verticalDirections = Direction.Type.VERTICAL.iterator();
   
-           while(var6.hasNext()) {
-              Direction direction = (Direction)var6.next();
+           while(verticalDirections.hasNext()) {
+              Direction direction = (Direction)verticalDirections.next();
               world.updateNeighborsAlways(pos.offset(direction), this);
            }
-  
-           this.method_27844(world, pos);
-        }
+          }
      }
   
      public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (!moved && !state.isOf(newState.getBlock())) {
            super.onStateReplaced(state, world, pos, newState, moved);
            if (!world.isClient) {
-              Direction[] var6 = Direction.values();
-              int var7 = var6.length;
+              Direction[] directions = Direction.values();
   
-              for(int var8 = 0; var8 < var7; ++var8) {
-                 Direction direction = var6[var8];
+              for(int i = 0; i < directions.length; ++i) {
+                 Direction direction = directions[i];
                  world.updateNeighborsAlways(pos.offset(direction), this);
               }
   
               this.update(world, pos, state);
-              this.method_27844(world, pos);
            }
         }
      }
   
-     private void method_27844(World world, BlockPos blockPos) {
-        Iterator<Direction> var3 = Direction.Type.HORIZONTAL.iterator();
-  
-        Direction direction2;
-        while(var3.hasNext()) {
-           direction2 = (Direction)var3.next();
-           this.updateNeighbors(world, blockPos.offset(direction2));
-        }
-  
-        var3 = Direction.Type.HORIZONTAL.iterator();
-  
-        while(var3.hasNext()) {
-           direction2 = (Direction)var3.next();
-           BlockPos blockPos2 = blockPos.offset(direction2);
-           if (world.getBlockState(blockPos2).isSolidBlock(world, blockPos2)) {
-              this.updateNeighbors(world, blockPos2.up());
-           } else {
-              this.updateNeighbors(world, blockPos2.down());
-           }
-        }
-  
-     }
-  
-     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
+    public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
         if (!world.isClient) {
            if (state.canPlaceAt(world, pos)) {
               this.update(world, pos, state);
@@ -196,28 +152,21 @@ class RedstoneChainBlock extends Block implements Waterloggable {
            }
   
         }
-     }
+    }
   
     public int getStrongRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
-        return !this.wiresGivePower ? 0 : state.getWeakRedstonePower(world, pos, direction);
+        return !this.wiresGivePower ? 0 : getWeakRedstonePower(state, world, pos, direction);
     }
   
     public int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
-        if (this.wiresGivePower && direction == Direction.DOWN) {
-           int i = (Integer)state.get(POWER);
-           if (i == 0) {
-              return 0;
-           } else {
-              return direction != Direction.DOWN ? 0 : i;
-           }
+        if (this.wiresGivePower) {
+              return direction==Direction.DOWN ? (Integer)state.get(POWER) : 0;
         } else {
            return 0;
         }
     }
-  
 
-  
-     public boolean emitsRedstonePower(BlockState state) {
+    public boolean emitsRedstonePower(BlockState state) {
         return this.wiresGivePower;
-     }
+    }
 }
