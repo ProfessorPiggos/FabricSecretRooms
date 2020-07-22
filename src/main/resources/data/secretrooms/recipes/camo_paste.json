@@ -29,7 +29,8 @@
             {"item": "minecraft:dirt"}
         ],
         "B": [
-            {"item": "minecraft:bucket"}        ]
+            {"item": "minecraft:bucket"}
+        ]
 
     },
     "result": {"item": "secretrooms:camo_paste","count": 1}

@@ -35,7 +35,6 @@ public class SecretRooms implements ModInitializer {
 	public static final SolidAirBlock SOLID_AIR_BLOCK = new SolidAirBlock(FabricBlockSettings.of(Material.GLASS).hardness(.45f).nonOpaque());
 	public static final LanternButtonBlock LANTERN_BUTTON_BLOCK = new LanternButtonBlock(AbstractBlock.Settings.copy(Blocks.LANTERN).lightLevel(createLightLevelFromBlockState(15)));
 	public static final LanternButtonBlock SOUL_LANTERN_BUTTON_BLOCK = new LanternButtonBlock(AbstractBlock.Settings.copy(Blocks.SOUL_LANTERN).lightLevel(createLightLevelFromBlockState(10)));
-	public static final RedstoneChain REDSTONE_CHAIN = new RedstoneChainBlock(AbstractBlock.Settings.copy(Blocks.CHAIN_BLOCK));
 	public static final String MOD_ID = "secretrooms";
 
 
