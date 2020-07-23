@@ -160,7 +160,7 @@ class RedstoneChainBlock extends Block implements Waterloggable {
   
     public int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
         if (this.wiresGivePower) {
-              return direction==Direction.DOWN ? (Integer)state.get(POWER) : 0;
+              return ((direction==Direction.DOWN )|(direction == Direction.UP)) ? (Integer)state.get(POWER) : 0;
         } else {
            return 0;
         }
