@@ -7,6 +7,7 @@ import com.google.common.collect.Sets;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.Waterloggable;
 import net.minecraft.entity.ai.pathing.NavigationType;
@@ -58,24 +59,44 @@ class RedstoneChainBlock extends Block implements Waterloggable {
     }
 
   
-     private int method_27842(World world, BlockPos blockPos) {
-        this.wiresGivePower = false;
-        int i = world.getReceivedRedstonePower(blockPos);
-        this.wiresGivePower = true;
-        int j = 0;
-        if (i < 15) {
-           Iterator<Direction> verticalDirection = Direction.Type.VERTICAL.iterator();
+   private int recievedPower(World world, BlockPos blockPos) {
+      this.wiresGivePower = false;
+      int i = 0;
+      Iterator<Direction> verticalIterator = Direction.Type.VERTICAL.iterator();
+      Iterator<Direction> horizontalIterator = Direction.Type.HORIZONTAL.iterator();
+      while (verticalIterator.hasNext()) {
+         Direction verticalDirection = (Direction)verticalIterator.next();
+         int k = 0;
+         if (verticalDirection == Direction.UP && !world.getBlockState(blockPos.up(2)).isOf(Blocks.REDSTONE_WIRE)){
+            k = world.getEmittedRedstonePower(blockPos.offset(verticalDirection), verticalDirection);
+         }
+         else if (verticalDirection == Direction.DOWN){
+            boolean j = false;
+            while (horizontalIterator.hasNext()){
+               Direction horizontalDirection = (Direction)horizontalIterator.next(); 
+               if (world.getBlockState(blockPos.down().offset(horizontalDirection)).isOf(Blocks.REDSTONE_WIRE)){
+                  j = true;
+               }
+            }
+            if (!j){
+               k = world.getEmittedRedstonePower(blockPos.offset(verticalDirection), verticalDirection);
+            }
+         }
+         if (k>i){
+            i=k;
+         }
+      }
+      this.wiresGivePower = true;
+      int j = 0;
+      if (i < 15) {
+           Iterator<Direction> verticalDirection2 = Direction.Type.VERTICAL.iterator();
   
            while(true) {
-              while(verticalDirection.hasNext()) {
-                 Direction direction = (Direction)verticalDirection.next();
+              while(verticalDirection2.hasNext()) {
+                 Direction direction = (Direction)verticalDirection2.next();
                  BlockPos blockPos2 = blockPos.offset(direction);
                  BlockState blockState2 = world.getBlockState(blockPos2);
                  j = Math.max(j, this.increasePower(blockState2));
-                 BlockPos blockPos3 = blockPos.up();
-                 if (blockState2.isSolidBlock(world, blockPos2) && !world.getBlockState(blockPos3).isSolidBlock(world, blockPos3)) {
-                    j = Math.max(j, this.increasePower(world.getBlockState(blockPos2.up())));
-                 }
               }
   
               return Math.max(i, j - 1);
@@ -84,8 +105,9 @@ class RedstoneChainBlock extends Block implements Waterloggable {
            return Math.max(i, j - 1);
         }
      }
-     private void update(World world, BlockPos pos, BlockState state) {
-        int i = this.method_27842(world, pos);
+
+   private void update(World world, BlockPos pos, BlockState state) {
+        int i = this.recievedPower(world, pos);
         if ((Integer)state.get(POWER) != i) {
            if (world.getBlockState(pos) == state) {
               world.setBlockState(pos, (BlockState)state.with(POWER, i), 2);
