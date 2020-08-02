@@ -36,8 +36,7 @@ class RedstoneChainBlock extends Block implements Waterloggable {
 
    public RedstoneChainBlock(Settings settings) {
       super(settings);
-      this.setDefaultState(
-            (BlockState) ((BlockState) this.stateManager.getDefaultState()).with(WATERLOGGED, false).with(POWER, 0));
+      this.setDefaultState((BlockState) ((BlockState) this.stateManager.getDefaultState()).with(WATERLOGGED, false).with(POWER, 0));
 
    }
 

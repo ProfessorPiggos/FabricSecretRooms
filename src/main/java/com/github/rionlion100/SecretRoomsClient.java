@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.render.RenderLayer;
 
 public class SecretRoomsClient implements ClientModInitializer {
-	
 	@Override
 	public void onInitializeClient() {
 		BlockRenderLayerMap.INSTANCE.putBlock(SecretRooms.TORCH_LEVER_BLOCK, RenderLayer.getCutout());
