@@ -1,10 +1,13 @@
 package com.github.rionlion100;
 
 import java.util.Iterator;
+import java.util.Random;
 import java.util.Set;
 
 import com.google.common.collect.Sets;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -14,6 +17,7 @@ import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
@@ -190,5 +194,17 @@ class RedstoneChainBlock extends Block implements Waterloggable {
 
     public boolean emitsRedstonePower(BlockState state) {
         return this.wiresGivePower;
+    }
+
+    @Override
+    @Environment(EnvType.CLIENT)
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+        if (random.nextInt(state.get(POWER)+1) > 0) {
+            double xPos = (double)pos.getX() + 0.5D;
+            double yPos = (double)pos.getY() + random.nextDouble();
+            double zPos = (double)pos.getZ() + 0.5D;
+
+            world.addParticle(new DustParticleEffect(1.0F, 0.0F, 0.0F, 0.5F), xPos, yPos, zPos, 0.0D, 0.0D, 0.0D);
+        }
     }
 }
