@@ -1,7 +1,6 @@
 plugins {
 	id 'fabric-loom' version '0.4-SNAPSHOT'
 	id 'maven-publish'
-	id "com.wynprice.cursemaven" version "2.1.0"
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -13,11 +12,6 @@ group = project.maven_group
 
 repositories { 
     jcenter() 
-	maven {
-        name = "CurseForge"
-        url = "https://minecraft.curseforge.com/api/maven/"
-    }
-	maven { url 'https://jitpack.io' }
 }
 
 minecraft {
@@ -31,8 +25,6 @@ dependencies {
 
 	modImplementation "com.lettuce.fudge:artifice:${artifice_version}"
 	include "com.lettuce.fudge:artifice:${artifice_version}"
-	
-	modImplementation "com.github.Brandcraf06:Blockus:1.16-SNAPSHOT"
 }
 processResources {
 	inputs.property "version", project.version
