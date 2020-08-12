@@ -30,11 +30,12 @@ public class SecretRooms implements ModInitializer {
 	public static Map<Block, CamoTrapdoorBlock> trapdoorCopyBlockMap = new HashMap<Block, CamoTrapdoorBlock>();
 	public static List<Block> copyBlockList = new ArrayList<Block>();
 	public static final Item CAMO_PASTE = new Item(new Item.Settings().group(SecretRooms.MAIN_GROUP).recipeRemainder(Items.BUCKET).maxCount(16));
-	public static final TorchLeverBlock TORCH_LEVER_BLOCK = new TorchLeverBlock(AbstractBlock.Settings.copy(Blocks.TORCH).lightLevel(createLightLevelFromBlockState(10)));
+	public static final TorchLeverBlock TORCH_LEVER_BLOCK = new TorchLeverBlock(AbstractBlock.Settings.copy(Blocks.TORCH).lightLevel(createLightLevelFromBlockState(14)));
 	public static final TorchLeverBlock SOUL_TORCH_LEVER_BLOCK = new SoulTorchLeverBlock(AbstractBlock.Settings.copy(Blocks.SOUL_TORCH).lightLevel(createLightLevelFromBlockState(10)));
 	public static final SolidAirBlock SOLID_AIR_BLOCK = new SolidAirBlock(FabricBlockSettings.of(Material.GLASS).hardness(.45f).nonOpaque());
 	public static final LanternButtonBlock LANTERN_BUTTON_BLOCK = new LanternButtonBlock(AbstractBlock.Settings.copy(Blocks.LANTERN).lightLevel(createLightLevelFromBlockState(15)));
 	public static final LanternButtonBlock SOUL_LANTERN_BUTTON_BLOCK = new LanternButtonBlock(AbstractBlock.Settings.copy(Blocks.SOUL_LANTERN).lightLevel(createLightLevelFromBlockState(10)));
+	public static final RedstoneChainBlock REDSTONE_CHAIN = new RedstoneChainBlock(AbstractBlock.Settings.copy(Blocks.CHAIN));
 	public static final String MOD_ID = "secretrooms";
 
 
@@ -49,6 +50,7 @@ public class SecretRooms implements ModInitializer {
 			stacks.add(new ItemStack(SecretRooms.SOUL_TORCH_LEVER_BLOCK));
 			stacks.add(new ItemStack(SecretRooms.LANTERN_BUTTON_BLOCK));
 			stacks.add(new ItemStack(SecretRooms.SOUL_LANTERN_BUTTON_BLOCK));
+			stacks.add(new ItemStack(SecretRooms.REDSTONE_CHAIN));
 			for (int i = 0; i < copyBlockList.size(); i++){
 				Block block = copyBlockList.get(i);
 				OneWayGlassBlock oneWayGlassBlock = glassCopyBlockMap.get(block);
@@ -122,6 +124,8 @@ public class SecretRooms implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "lantern_button"), new BlockItem(LANTERN_BUTTON_BLOCK, new Item.Settings().group(SecretRooms.MAIN_GROUP)));
 		Registry.register(Registry.BLOCK, new Identifier(MOD_ID , "soul_lantern_button"), SOUL_LANTERN_BUTTON_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "soul_lantern_button"), new BlockItem(SOUL_LANTERN_BUTTON_BLOCK, new Item.Settings().group(SecretRooms.MAIN_GROUP)));
+		Registry.register(Registry.BLOCK, new Identifier(MOD_ID , "redstone_chain"), REDSTONE_CHAIN);
+		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "redstone_chain"), new BlockItem(REDSTONE_CHAIN, new Item.Settings().group(SecretRooms.MAIN_GROUP)));
 
 		VanillaList.addBlocks();
 		registerOneWayGlassBlocks();
@@ -129,6 +133,7 @@ public class SecretRooms implements ModInitializer {
 		registerGhostBlocks();
 		registerCamoTrapdoorBlocks();
 
-		RegisterData.register();		
+		RegisterData.register();	
+		
 	}
 }	

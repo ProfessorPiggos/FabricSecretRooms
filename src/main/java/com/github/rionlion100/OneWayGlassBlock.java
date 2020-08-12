@@ -11,8 +11,7 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.Direction;
 
 public class OneWayGlassBlock extends GlassBlock{
-    public static final DirectionProperty FACING;
-    static {FACING = FacingBlock.FACING;}
+    public static final DirectionProperty FACING = FacingBlock.FACING;
     
     public OneWayGlassBlock(Settings settings) {
         super(settings);
