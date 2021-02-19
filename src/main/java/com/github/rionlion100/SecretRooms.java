@@ -30,11 +30,11 @@ public class SecretRooms implements ModInitializer {
 	public static Map<Block, CamoTrapdoorBlock> trapdoorCopyBlockMap = new HashMap<Block, CamoTrapdoorBlock>();
 	public static List<Block> copyBlockList = new ArrayList<Block>();
 	public static final Item CAMO_PASTE = new Item(new Item.Settings().group(SecretRooms.MAIN_GROUP).recipeRemainder(Items.BUCKET).maxCount(16));
-	public static final TorchLeverBlock TORCH_LEVER_BLOCK = new TorchLeverBlock(AbstractBlock.Settings.copy(Blocks.TORCH).lightLevel(createLightLevelFromBlockState(14)));
-	public static final TorchLeverBlock SOUL_TORCH_LEVER_BLOCK = new SoulTorchLeverBlock(AbstractBlock.Settings.copy(Blocks.SOUL_TORCH).lightLevel(createLightLevelFromBlockState(10)));
+	public static final TorchLeverBlock TORCH_LEVER_BLOCK = new TorchLeverBlock(AbstractBlock.Settings.copy(Blocks.TORCH).luminance(createLightLevelFromBlockState(14)));
+	public static final TorchLeverBlock SOUL_TORCH_LEVER_BLOCK = new SoulTorchLeverBlock(AbstractBlock.Settings.copy(Blocks.SOUL_TORCH).luminance(createLightLevelFromBlockState(10)));
 	public static final SolidAirBlock SOLID_AIR_BLOCK = new SolidAirBlock(FabricBlockSettings.of(Material.GLASS).hardness(.45f).nonOpaque());
-	public static final LanternButtonBlock LANTERN_BUTTON_BLOCK = new LanternButtonBlock(AbstractBlock.Settings.copy(Blocks.LANTERN).lightLevel(createLightLevelFromBlockState(15)));
-	public static final LanternButtonBlock SOUL_LANTERN_BUTTON_BLOCK = new LanternButtonBlock(AbstractBlock.Settings.copy(Blocks.SOUL_LANTERN).lightLevel(createLightLevelFromBlockState(10)));
+	public static final LanternButtonBlock LANTERN_BUTTON_BLOCK = new LanternButtonBlock(AbstractBlock.Settings.copy(Blocks.LANTERN).luminance(createLightLevelFromBlockState(15)));
+	public static final LanternButtonBlock SOUL_LANTERN_BUTTON_BLOCK = new LanternButtonBlock(AbstractBlock.Settings.copy(Blocks.SOUL_LANTERN).luminance(createLightLevelFromBlockState(10)));
 	public static final RedstoneChainBlock REDSTONE_CHAIN = new RedstoneChainBlock(AbstractBlock.Settings.copy(Blocks.CHAIN));
 	public static final String MOD_ID = "secretrooms";
 
