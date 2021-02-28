@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+      "all": "secretrooms:block/liquid_crystal_glass_off"
+    }
+  }

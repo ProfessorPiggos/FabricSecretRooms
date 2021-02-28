@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "block/white_stained_glass"},
+        "powered=true": { "model": "block/glass" }
+    }
+}

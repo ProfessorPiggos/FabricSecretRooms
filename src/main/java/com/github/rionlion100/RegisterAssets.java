@@ -1,12 +1,11 @@
 package com.github.rionlion100;
 
 import com.swordglowsblue.artifice.api.Artifice;
-
 import net.minecraft.util.Identifier;
 
 public class RegisterAssets {
     public static void register() {
-        Artifice.registerAssets(new Identifier(SecretRooms.MOD_ID, "client_pack"), pack -> {
+        Artifice.registerAssetPack(new Identifier(SecretRooms.MOD_ID, "client_pack"), pack -> {
             //One way glass blockstate
             for (int i = 0; i < SecretRooms.copyBlockList.size(); i++){
                 String glassTranslationKey = SecretRooms.copyBlockList.get(i).getTranslationKey().replaceAll("block\\.minecraft\\.", "")+"_glass"; 
