@@ -50,6 +50,7 @@ public class VanillaList {
         SecretRooms.copyBlockList.add(Blocks.RED_CONCRETE);
         SecretRooms.copyBlockList.add(Blocks.WHITE_CONCRETE);
         SecretRooms.copyBlockList.add(Blocks.YELLOW_CONCRETE);
+        SecretRooms.copyBlockList.add(Blocks.PURPLE_CONCRETE);
         SecretRooms.copyBlockList.add(Blocks.TERRACOTTA);
         SecretRooms.copyBlockList.add(Blocks.BLACK_TERRACOTTA);
         SecretRooms.copyBlockList.add(Blocks.BLUE_TERRACOTTA);
@@ -64,6 +65,7 @@ public class VanillaList {
         SecretRooms.copyBlockList.add(Blocks.RED_TERRACOTTA);
         SecretRooms.copyBlockList.add(Blocks.WHITE_TERRACOTTA);
         SecretRooms.copyBlockList.add(Blocks.YELLOW_TERRACOTTA);
+        SecretRooms.copyBlockList.add(Blocks.PURPLE_TERRACOTTA);
         SecretRooms.copyBlockList.add(Blocks.BLACK_GLAZED_TERRACOTTA);
         SecretRooms.copyBlockList.add(Blocks.BLUE_GLAZED_TERRACOTTA);
         SecretRooms.copyBlockList.add(Blocks.BROWN_GLAZED_TERRACOTTA);
@@ -77,6 +79,7 @@ public class VanillaList {
         SecretRooms.copyBlockList.add(Blocks.RED_GLAZED_TERRACOTTA);
         SecretRooms.copyBlockList.add(Blocks.WHITE_GLAZED_TERRACOTTA);
         SecretRooms.copyBlockList.add(Blocks.YELLOW_GLAZED_TERRACOTTA);
+        SecretRooms.copyBlockList.add(Blocks.PURPLE_GLAZED_TERRACOTTA);
         SecretRooms.copyBlockList.add(Blocks.QUARTZ_BRICKS);
         SecretRooms.copyBlockList.add(Blocks.QUARTZ_PILLAR);
         SecretRooms.copyBlockList.add(Blocks.CHISELED_QUARTZ_BLOCK);
