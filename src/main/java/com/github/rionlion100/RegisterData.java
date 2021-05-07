@@ -6,7 +6,7 @@ import net.minecraft.util.Identifier;
 
 public class RegisterData {
     public static void register() {
-        Artifice.registerData(new Identifier(SecretRooms.MOD_ID,"server_pack"), pack -> {
+        Artifice.registerDataPack(new Identifier(SecretRooms.MOD_ID,"server_pack"), pack -> {
             pack.setDisplayName("Secret Rooms Data");
             pack.setDescription("Secret Rooms Data Generator");
             for (int i = 0; i < SecretRooms.copyBlockList.size(); i++){
