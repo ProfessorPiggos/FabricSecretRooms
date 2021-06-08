@@ -1,4 +1,4 @@
-package com.github.rionlion100;
+package com.github.spaceman;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;

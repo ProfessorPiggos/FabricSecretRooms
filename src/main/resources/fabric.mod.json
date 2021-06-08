@@ -9,8 +9,8 @@
     "Spaceman"
   ],
   "contact": {
-    "homepage": "https://github.com/rionlion100/secretrooms",
-    "sources": "https://github.com/rionlion100/secretrooms"
+    "homepage": "https://github.com/Spaceman/secretrooms",
+    "sources": "https://github.com/Spaceman/secretrooms"
   },
 
   "license": "GNU-GPLv3",
@@ -19,19 +19,17 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.github.rionlion100.SecretRooms"
+      "com.github.spaceman.SecretRooms"
     ],
     "client": [
-      "com.github.rionlion100.SecretRoomsClient"
+      "com.github.spaceman.SecretRoomsClient"
     ]
   },
 
   "depends": {
-    "fabricloader": ">=0.7.2",
+    "fabricloader": ">=0.11.3",
     "fabric": "*",
-    "minecraft": "1.16.x"
-  },
-  "suggests": {
-    "flamingo": "*"
+    "minecraft": "1.17.x",
+    "java": ">=16"
   }
 }

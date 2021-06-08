@@ -1,4 +1,4 @@
-package com.github.rionlion100;
+package com.github.spaceman;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

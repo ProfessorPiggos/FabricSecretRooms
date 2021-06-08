@@ -1,4 +1,4 @@
-package com.github.rionlion100;
+package com.github.spaceman;
 
 import java.util.Iterator;
 import java.util.Random;
@@ -24,6 +24,7 @@ import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3f;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
@@ -205,7 +206,7 @@ class RedstoneChainBlock extends Block implements Waterloggable {
          double yPos = (double) pos.getY() + random.nextDouble();
          double zPos = (double) pos.getZ() + 0.5D;
 
-         world.addParticle(new DustParticleEffect(1.0F, 0.0F, 0.0F, 0.5F), xPos, yPos, zPos, 0.0D, 0.0D, 0.0D);
+         world.addParticle(new DustParticleEffect(new Vec3f(1.0F, 0.0F, 0.0F), 0.5F ), xPos, yPos, zPos, 0.0D, 0.0D, 0.0D);
       }
    }
 }

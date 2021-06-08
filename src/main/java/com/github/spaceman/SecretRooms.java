@@ -1,4 +1,4 @@
-package com.github.rionlion100;
+package com.github.spaceman;
 
 import java.util.ArrayList;
 import java.util.HashMap;
