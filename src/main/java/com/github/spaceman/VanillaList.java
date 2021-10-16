@@ -83,5 +83,28 @@ public class VanillaList {
         SecretRooms.copyBlockList.add(Blocks.QUARTZ_BRICKS);
         SecretRooms.copyBlockList.add(Blocks.QUARTZ_PILLAR);
         SecretRooms.copyBlockList.add(Blocks.CHISELED_QUARTZ_BLOCK);
+        SecretRooms.copyBlockList.add(Blocks.COPPER_BLOCK);
+        SecretRooms.copyBlockList.add(Blocks.IRON_BLOCK);
+        SecretRooms.copyBlockList.add(Blocks.GOLD_BLOCK);
+        SecretRooms.copyBlockList.add(Blocks.DIAMOND_BLOCK);
+        SecretRooms.copyBlockList.add(Blocks.LAPIS_BLOCK);
+        SecretRooms.copyBlockList.add(Blocks.AMETHYST_BLOCK);
+        SecretRooms.copyBlockList.add(Blocks.CUT_COPPER);
+        SecretRooms.copyBlockList.add(Blocks.OXIDIZED_COPPER);
+        SecretRooms.copyBlockList.add(Blocks.OXIDIZED_CUT_COPPER);
+        SecretRooms.copyBlockList.add(Blocks.WEATHERED_COPPER);
+        SecretRooms.copyBlockList.add(Blocks.WEATHERED_CUT_COPPER);
+        SecretRooms.copyBlockList.add(Blocks.EXPOSED_COPPER);
+        SecretRooms.copyBlockList.add(Blocks.EXPOSED_CUT_COPPER);
+        SecretRooms.copyBlockList.add(Blocks.CALCITE);
+        SecretRooms.copyBlockList.add(Blocks.DEEPSLATE_BRICKS);
+        SecretRooms.copyBlockList.add(Blocks.POLISHED_DEEPSLATE);
+        SecretRooms.copyBlockList.add(Blocks.CHISELED_DEEPSLATE);
+        SecretRooms.copyBlockList.add(Blocks.DEEPSLATE_TILES);
+        SecretRooms.copyBlockList.add(Blocks.SMOOTH_BASALT);
+        SecretRooms.copyBlockList.add(Blocks.COBBLED_DEEPSLATE);
+        SecretRooms.copyBlockList.add(Blocks.CRACKED_DEEPSLATE_BRICKS);
+        SecretRooms.copyBlockList.add(Blocks.CRACKED_DEEPSLATE_TILES);
+        
     }
 }

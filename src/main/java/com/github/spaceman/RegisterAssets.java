@@ -14,6 +14,7 @@ public class RegisterAssets {
                 String ghostBlockTranslationKey = SecretRooms.copyBlockList.get(i).getTranslationKey().replaceAll("block\\.minecraft\\.", "")+"_ghost_block"; 
                 String camoTrapdoorTranslationKey = SecretRooms.copyBlockList.get(i).getTranslationKey().replaceAll("block\\.minecraft\\.", "")+"_camo_trapdoor";
                 String textureTranslationKey = SecretRooms.copyBlockList.get(i).getTranslationKey().replaceAll("block\\.minecraft\\.", "");
+
                 pack.addBlockState(new Identifier(SecretRooms.MOD_ID, glassTranslationKey), state -> state
                     .variant("facing=up", variant -> variant
                         .model(new Identifier(SecretRooms.MOD_ID, "block/"+glassTranslationKey))
