@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "secretrooms:camo_paste"
+        },
+        {
+            "item": "minecraft:scaffolding"
+        }
+    ],
+    "result": {
+        "item": "secretrooms:solid_air",
+        "count": 1
+    }
+}
