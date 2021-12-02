@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-      "all": "secretrooms:block/solid_air"
-    }
-  }

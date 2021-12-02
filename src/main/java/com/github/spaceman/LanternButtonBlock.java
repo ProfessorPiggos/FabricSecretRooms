@@ -21,6 +21,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.tick.OrderedTick;
 
 public class LanternButtonBlock extends LanternBlock {
     public static final BooleanProperty POWERED = Properties.POWERED;
@@ -44,7 +45,7 @@ public class LanternButtonBlock extends LanternBlock {
     public void powerOn(BlockState state, World world, BlockPos pos) {
         world.setBlockState(pos, (BlockState) state.with(POWERED, true), 3);
         this.updateNeighbors(state, world, pos);
-        world.getBlockTickScheduler().schedule(pos, this, this.getPressTicks());
+        world.createAndScheduleBlockTick(pos, this, this.getPressTicks());
     }
 
     private int getPressTicks() {

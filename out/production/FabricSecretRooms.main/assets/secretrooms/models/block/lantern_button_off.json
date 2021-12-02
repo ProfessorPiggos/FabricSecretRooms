@@ -1,6 +1,0 @@
-{
-    "parent": "minecraft:block/template_lantern",
-    "textures": {
-      "lantern": "secretrooms:block/lantern_button_off"
-    }
-}
